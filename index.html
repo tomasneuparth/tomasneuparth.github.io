@@ -5,32 +5,76 @@
   <title>Tomás Neuparth – Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body {
-      font-family: sans-serif;
-      background-color: #f4f4f4;
+    * {
       margin: 0;
-      padding: 4rem 2rem;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background-color: white;
+      color: #000;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      position: relative;
     }
 
-    img {
-      max-width: 300px;
+    .center-content {
+      max-width: 90%;
+    }
+
+    .center-content img {
+      width: 180px;
+      max-width: 100%;
       height: auto;
+      margin-bottom: 20px;
     }
 
-    h1 {
-      font-size: 2rem;
-      margin-top: 2rem;
+    .subtitle {
+      font-size: 14px;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
     }
 
-    p {
-      color: #666;
+    .progress {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .contacts {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      font-size: 12px;
+      color: #333;
+      text-align: right;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 600px) {
+      .contacts {
+        right: 15px;
+        bottom: 15px;
+        font-size: 11px;
+      }
     }
   </style>
 </head>
 <body>
-  <img src="Logo 1.png" alt="Logo">
-  <h1>Hello, I'm Tomás Neuparth</h1>
-  <p>Welcome to my online portfolio.</p>
+  <div class="center-content">
+    <img src="Logo 1.png" alt="Tomás Neuparth Logo">
+    <div class="subtitle">TOMÁS NEUPARTH<br>ARCHITECTURE &amp; DESIGN</div>
+    <div class="progress">WORK IN PROGRESS</div>
+  </div>
+  <div class="contacts">
+    CONTACTS:<br>
+    +45 31382306<br>
+    tasnarq@gmail.com
+  </div>
 </body>
 </html>
