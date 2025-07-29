@@ -17,9 +17,19 @@ body {
   margin-top: 20px;
 }
 
-.logo {
-  max-width: 200px;
-  height: auto;
+.left, .right {
+  flex: 1;
+  padding: 3rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo img {
+  width: 120px;
 }
 
 .title-group {
