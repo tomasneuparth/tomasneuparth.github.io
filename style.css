@@ -37,15 +37,18 @@ body {
 }
 
 .title-main {
-  font-size: 1.8rem;   /* adjust to match logo size */
-  font-weight: 300;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 300; /* Try 300 instead of 'light' */
   text-transform: uppercase;
   margin: 0;
+  color: #333;
 }
 
 .title-sub {
-  font-size: 1rem;     /* slightly smaller */
-  font-weight: 300;
+  font-size: 0.9rem;     /* slightly smaller */
+  font-weight: 200;
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 1px;
