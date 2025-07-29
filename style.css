@@ -31,6 +31,14 @@ body {
   width: 120px;
 }
 
+.site-title {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.5rem;
+  font-weight: 300; /* Try 300 instead of 'light' */
+  color: #333;
+}
+
 .nav-links {
   margin-top: 2rem;
 }
