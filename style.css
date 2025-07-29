@@ -27,10 +27,6 @@ body {
   justify-content: space-between;
 }
 
-.logo img {
-  width: 120px;
-}
-
 .title-group {
   text-align: left;
   margin-top: 10px;
@@ -52,6 +48,10 @@ body {
   text-transform: uppercase;
   margin: 0;
   letter-spacing: 1px;
+}
+
+.logo img {
+  width: 120px;
 }
 
 .nav-links {
