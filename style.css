@@ -35,14 +35,14 @@ body {
 .title-main {
   margin-top: 10px;
   font-size: 1.5rem;
-  font-weight: 300; /* Try 300 instead of 'light' */
+  font-weight: 300;
   text-transform: uppercase;
   margin: 0;
   color: #333;
 }
 
 .title-sub {
-  font-size: 0.95rem;     /* slightly smaller */
+  font-size: 0.95rem;
   font-weight: 100;
   text-transform: uppercase;
   margin: 0;
