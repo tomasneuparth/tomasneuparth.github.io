@@ -35,7 +35,7 @@ body {
   text-align: center;
   margin-top: 10px;
   font-size: 1.5rem;
-  font-weight: 300; /* Try 300 instead of 'light' */
+  font-weight: 200; /* Try 300 instead of 'light' */
   color: #333;
 }
 
