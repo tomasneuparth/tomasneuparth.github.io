@@ -21,6 +21,12 @@ body {
   padding: 3rem;
 }
 
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .title-group {
   margin-top: 2rem;
   text-align: left;
@@ -44,12 +50,6 @@ body {
 
 .logo img {
   width: 120px;
-}
-
-.left {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .nav-links {
