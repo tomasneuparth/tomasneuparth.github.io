@@ -23,7 +23,7 @@ body {
 }
 
 .title-group {
-  text-align: center;
+  text-align: left;
   margin-top: 10px;
 }
 
@@ -35,7 +35,7 @@ body {
 }
 
 .title-sub {
-  font-size: 0.8rem;     /* slightly smaller */
+  font-size: 0.9rem;     /* slightly smaller */
   font-weight: 300;
   text-transform: uppercase;
   margin: 0;
