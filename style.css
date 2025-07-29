@@ -10,11 +10,10 @@ body {
   color: #111;
 }
 
-.logo-container {
+.container {
   display: flex;
-  flex-direction: column;
-  align-items: left;
-  margin-top: 20px;
+  height: 100vh;
+  width: 100%;
 }
 
 .left, .right {
@@ -32,27 +31,6 @@ body {
   width: 120px;
 }
 
-.title-group {
-  text-align: left;
-  margin-top: 10px;
-}
-
-.title-main {
-  font-size: 1.7rem;   /* adjust to match logo size */
-  font-weight: 300;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.title-sub {
-  font-size: 0.9rem;     /* slightly smaller */
-  font-weight: 300;
-  text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 1px;
-}
-
-
 .nav-links {
   margin-top: 2rem;
 }
@@ -67,7 +45,7 @@ body {
 
 .intro-text {
   margin-top: 2rem;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
