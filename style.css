@@ -64,6 +64,6 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .cv {
   width: 100%;
-  height: 100vh;
-  border: none;
+  height: 100%;
+  object-fit: contain;
 }
