@@ -32,6 +32,7 @@ body {
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  margin-top: 20px;
 }
 
 /* Logo + title block */
@@ -81,7 +82,7 @@ body {
 }
 
 .intro-text {
-  margin-top: 2rem;
+  margin-top: 20px;
   font-size: 0.9rem;
   line-height: 1.5;
 }
