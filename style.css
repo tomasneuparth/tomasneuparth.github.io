@@ -43,10 +43,10 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 .contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
 
 .right {
-  width: 65%;
-  position: relative;
-  overflow: hidden;
+  flex: 1;
   background-color: white;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .carousel img {
