@@ -71,6 +71,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
   width: auto;
   height: auto;
   display: block;
+  align-items: right;
   margin: auto;
   object-fit: contain;
 }
