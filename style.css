@@ -27,6 +27,11 @@ body {
   justify-content: space-between;
 }
 
+.title-group {
+  text-align: left;
+  margin-top: 0px;
+}
+
 .title-main {
   font-size: 1.5rem;
   font-weight: 300;
