@@ -62,12 +62,12 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .carousel img.active { opacity: 1; }
 
-.cv {
+.cv-image {
   max-width: 100%;
   max-height: 100%;
   width: auto;
   height: auto;
   display: block;
-  margin: 0 auto;
+  margin: auto;
   object-fit: contain;
 }
