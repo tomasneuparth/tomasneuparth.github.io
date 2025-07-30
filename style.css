@@ -1,6 +1,10 @@
 * { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; background:#fff; }
-.layout { display:flex; height:100vh; }
+.layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
 
 .left {
   width: 50%;
@@ -46,10 +50,12 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .right {
   width: 50%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: white;
+  overflow: hidden;
 }
 
 .carousel img {
@@ -73,5 +79,11 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
   display: block;
   align-items: right;
   margin: auto;
+  object-fit: contain;
+}
+
+.right img {
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
