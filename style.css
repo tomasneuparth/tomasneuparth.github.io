@@ -55,14 +55,14 @@ body {
 }
 
 .title-main {
-  font-size: 1rem;
+  font-size: 0.6rem;
   font-weight: 300;
   text-transform: uppercase;
   margin: 0;
 }
 
 .title-sub {
-  font-size: 0.7rem;
+  font-size: 0.3rem;
   font-weight: 300;
   text-transform: uppercase;
   margin: 0;
