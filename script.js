@@ -1,9 +1,7 @@
-const images = document.querySelectorAll(".carousel-image");
-let current = 0;
-
+const slides = document.querySelectorAll('.carousel img');
+let idx = 0;
 setInterval(() => {
-  images[current].classList.add("hidden");
-  current = (current + 1) % images.length;
-  images[current].classList.remove("hidden");
-}, 3000); // change image every 3 seconds
-
+  slides[idx].classList.remove('active');
+  idx = (idx + 1) % slides.length;
+  slides[idx].classList.add('active');
+}, 4000);
