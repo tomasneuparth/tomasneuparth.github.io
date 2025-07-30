@@ -91,7 +91,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
   width: auto;
   height: auto;
   display: block;
-  align-items: right;
+  align-items: center;
   margin: auto;
   object-fit: contain;
 }
