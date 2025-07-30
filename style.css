@@ -41,40 +41,36 @@ body {
 
 /* Titles */
 .titles h1 {
-  font-size: 28px;
-  letter-spacing: 1px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 0px;
 }
 
 .titles h2 {
-  font-size: 16px;
-  font-weight: normal;
-  margin-top: 4px;
-  margin-bottom: 30px;
+  font-size: 0.6rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 100px;
 }
 
 /* Navigation Menu */
-.menu {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 30px;
-}
-
 .menu a {
+  display:block;
+  font-weight: 600;
+  margin: 8px 0;
   text-decoration: none;
-  color: black;
-  font-weight: bold;
-  margin-bottom: 10px;
+  color: #000;
 }
 
-.menu a:hover {
-  text-decoration: underline;
-}
+.menu a:hover { text-decoration: underline; }
 
 /* Intro Text */
 .intro {
-  max-width: 80%;
-  margin-bottom: 30px;
-  line-height: 1.5;
+  margin-top: 200px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 50%;
 }
 
 .intro p {
@@ -82,9 +78,8 @@ body {
 }
 
 /* Contact Section */
-.contact {
-  font-size: 14px;
-}
+.contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
+
 
 /* Right Column */
 .right {
