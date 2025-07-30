@@ -13,13 +13,13 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 .logo { width:120px; margin-bottom: 30px; }
 
 .titles h1 {
-  font-size: 1.8rem;
+  font-size: 1rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 4px;
 }
 .titles h2 {
-  font-size: 1rem;
+  font-size: 0.6rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 30px;
