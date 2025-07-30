@@ -1,52 +1,28 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Body Styling */
-body {
-  font-family: Arial, sans-serif;
-  background-color: white;
-  color: black;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-}
-
-/* Layout Container */
+* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; background:#fff; }
 .layout {
   display: flex;
-  width: 100%;
-  max-width: 1200px;
+  height: 100vh;
+  overflow: hidden;
 }
 
-/* Left Column */
 .left {
   width: 50%;
-  padding: 40px;
+  padding: 2rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-/* Logo Styling */
-.logo {
-  width: 120px;
-  height: auto;
-  margin-bottom: 30px;
-  cursor: pointer;
-}
+.logo { width:120px; margin-bottom: 0px; }
 
-/* Titles */
 .titles h1 {
   font-size: 0.8rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: 0px;
 }
-
 .titles h2 {
   font-size: 0.6rem;
   font-weight: 300;
@@ -54,7 +30,6 @@ body {
   margin-bottom: 100px;
 }
 
-/* Navigation Menu */
 .menu a {
   display:block;
   font-weight: 600;
@@ -62,10 +37,8 @@ body {
   text-decoration: none;
   color: #000;
 }
-
 .menu a:hover { text-decoration: underline; }
 
-/* Intro Text */
 .intro {
   margin-top: 200px;
   font-size: 0.95rem;
@@ -73,55 +46,44 @@ body {
   max-width: 50%;
 }
 
-.intro p {
-  margin-bottom: 15px;
-}
-
-/* Contact Section */
 .contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
 
-
-/* Right Column */
 .right {
   width: 50%;
-  background-color: white;
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  background: white;
   overflow: hidden;
-  position: relative;
-}
-
-/* Carousel */
-.carousel {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  position: relative;
 }
 
 .carousel img {
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain;
-  display: none;
-  position: absolute;
-  transition: opacity 0.5s ease;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:auto;
+  height:100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease;
 }
 
-.carousel img.active {
-  display: block;
-  position: relative;
-}
+.carousel img.active { opacity: 1; }
 
-/* CV Page Styling */
 .cv-image {
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
-  object-fit: contain;
   display: block;
-  padding: 40px;
+  align-items: right;
+  margin: auto;
+  object-fit: contain;
+}
+
+.right img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
