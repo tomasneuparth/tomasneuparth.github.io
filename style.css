@@ -60,32 +60,35 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .carousel {
   position: relative;
-  width: 90%;
-  max-height: 80%;
+  max-width: 100%;
+  margin: auto;
   overflow: hidden;
 }
 
-.carousel-image {
+.carousel-images {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: 400%; /* 100% x number of images */
+}
+
+.carousel-images img {
   width: 100%;
   height: auto;
-  object-fit: cover;
+}
+
+button.prev, button.next {
   position: absolute;
-  transition: opacity 0.8s ease;
-  opacity: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255,255,255,0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
 }
 
-.carousel-image:first-child {
-  opacity: 1;
-  position: relative;
-}
-
-.carousel-image:not(.hidden) {
-  opacity: 1;
-}
-
-.hidden {
-  opacity: 0;
-}
+button.prev { left: 10px; }
+button.next { right: 10px; }
 
 .cv-image {
   max-width: 100%;
