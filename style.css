@@ -88,8 +88,8 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 }
 
 .cv-image {
-  max-width: 130%;
-  max-height: 130%;
+  max-width: 100%;
+  max-height: 100%;
   width: auto;
   height: auto;
   display: block;
