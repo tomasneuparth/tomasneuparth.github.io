@@ -84,3 +84,36 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
   max-height: 100%;
   object-fit: contain;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  overflow-y: scroll;
+}
+
+.project-thumb {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.project-thumb span {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.project-thumb:hover {
+  opacity: 0.7;
+}
