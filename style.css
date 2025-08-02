@@ -58,32 +58,18 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
   position: relative;
 }
 
-.carousel {
-  width: 200%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  position: relative;
-}
-
-.carousel img.active {
-  opacity: 1;
-  display: block;
-  position: relative;
-}
-
 .carousel img {
-  max-width: 200%;
-  max-height: 90vh;
-  object-fit: contain;
-  display: none;
-  position: absolute;
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:auto;
+  height:100%;
   transform: translate(-50%, -50%);
   opacity: 0;
   transition: opacity 1s ease;
 }
+
+.carousel img.active { opacity: 1; }
 
 .cv-image {
   max-width: 200%;
