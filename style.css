@@ -87,7 +87,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 30px;
   padding: 80px 40px 40px 40px;
   overflow-y: scroll;
@@ -103,7 +103,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 }
 
 .project-thumb img {
-  width: 75%;
+  width: 100%;
   height: auto;
   object-fit: cover;
 }
