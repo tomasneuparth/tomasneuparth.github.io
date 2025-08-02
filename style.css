@@ -87,7 +87,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(minmax(200px, 1fr));
+  grid-template-columns: repeat(autofit,minmax(200px, 1fr));
   gap: 30px;
   padding: 80px 40px 40px 40px;
   overflow-y: scroll;
