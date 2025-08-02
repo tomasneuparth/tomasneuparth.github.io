@@ -109,9 +109,11 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 }
 
 .project-thumb span {
-  margin-top: 8px;
-  font-size: 0.9rem;
+  margin-top: 10px;
+  font-size: 0.8rem;
   text-transform: uppercase;
+  line-height: 1.2;
+  text-align: left; /* aligns the text to the left */
 }
 
 .project-thumb:hover {
