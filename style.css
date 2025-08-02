@@ -69,8 +69,8 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 .carousel img.active { opacity: 1; }
 
 .cv-image {
-  max-width: 110%;
-  max-height: 110%;
+  max-width: 120%;
+  max-height: 120%;
   width: auto;
   height: auto;
   display: block;
@@ -87,7 +87,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(autofit, minmax(200px, 1fr));
+  grid-template-columns: repeat(autofit, minmax(300px, 1fr));
   gap: 30px;
   padding: 80px 40px 40px 40px;
   overflow-y: scroll;
