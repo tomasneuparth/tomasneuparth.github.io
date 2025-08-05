@@ -71,9 +71,9 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 
 
 .cv-image {
-  width: 100%;
+  width: 150%;
   height: auto;
-  max-height: 100%;
+  max-height: 150%;
   object-fit: contain;
   display: block;
   padding: 20px; /* Optional: Adjust or remove for tighter fit */
