@@ -106,7 +106,7 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 .project-thumb img {
   width: 100%;
   aspect-ratio: 1 / 1; /* Forces a 4:3 ratio for ALL thumbnails */
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
