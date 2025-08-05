@@ -104,9 +104,8 @@ body, html { height:100%; width:100%; font-family:Helvetica, Arial, sans-serif; 
 }
 
 .project-thumb img {
-  width: auto;
-  height: auto;
-  aspect-ratio: 4 / 3; /* Forces a 4:3 ratio for ALL thumbnails */
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces a 4:3 ratio for ALL thumbnails */
   object-fit: cover;
   display: block;
 }
