@@ -58,7 +58,7 @@ body {
 
 .carousel img,
 .single-image img {
-  max-width: 100%;
+  max-width: 80%;
   border-radius: 12px;
   display: block;
 }
@@ -139,6 +139,7 @@ body {
     height: 100%;
   }
 }
+
 
 
 
