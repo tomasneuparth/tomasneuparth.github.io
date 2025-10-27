@@ -359,9 +359,10 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   .right {
     width: 100%;
     margin-top: 100px;
-    overflow-y: auto;
     padding: 1rem;
-    min-height: 150vh; /* ✅ ensures scroll works even with little content */
+    min-height: 250vh; /* ✅ ensure scroll space */
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .intro, .contact {
@@ -370,5 +371,6 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
   body, html {
     overflow-x: hidden;
+    height: 100%;
   }
 }
