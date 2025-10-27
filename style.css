@@ -350,17 +350,20 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     will-change: transform;
     height: 100vh;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* ✅ Align content to top */
   }
 
   .left.hidden {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* ✅ Slide out to left */
   }
 
   .right {
     width: 100%;
     margin-top: 100px;
     padding: 1rem;
-    min-height: 250vh; /* ✅ ensure scroll space */
+    min-height: 250vh; /* ✅ Ensures scroll triggers on mobile */
     overflow-x: hidden;
     overflow-y: auto;
   }
