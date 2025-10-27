@@ -357,10 +357,25 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
   .right {
     width: 100%;
-    margin-top: 100px; /* Adjust if needed for spacing under left pane */
+    margin-top: 100px;
+    overflow-y: auto;
+    padding: 1rem;
   }
 
-  body, html {
-    overflow-x: hidden;
+  .intro,
+  .contact {
+    display: block;
+    font-size: 0.85rem;
+  }
+
+  .left .intro,
+  .left .contact {
+    display: none;
+  }
+
+  .right .intro,
+  .right .contact {
+    display: block;
   }
 }
+
