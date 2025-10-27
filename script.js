@@ -16,10 +16,10 @@ window.addEventListener("scroll", function () {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     if (scrollTop > lastScrollTop) {
-      // Scrolling down
+      // Scrolling down — hide left panel
       leftPane.classList.add('hidden');
     } else {
-      // Scrolling up
+      // Scrolling up — show left panel
       leftPane.classList.remove('hidden');
     }
 
