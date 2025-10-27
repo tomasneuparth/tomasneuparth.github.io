@@ -348,20 +348,19 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     background: white;
     transition: transform 0.4s ease;
     will-change: transform;
+    height: auto;
   }
 
   .left.hidden {
-    transform: translateY(-100%);
+    transform: translateX(-100%);
   }
 
   .right {
     width: 100%;
-    margin-top: 100px; /* adjust based on the actual height of your .left pane */
+    margin-top: 100px; /* Adjust if needed for spacing under left pane */
   }
 
   body, html {
     overflow-x: hidden;
   }
 }
-
-
