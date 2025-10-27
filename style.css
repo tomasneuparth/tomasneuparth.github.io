@@ -302,7 +302,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80%;               /* Reduced height */
+  height: 90%;               /* Reduced height */
   width: 100%;
   box-sizing: border-box;
   margin: auto;              /* Vertically center in .right */
@@ -401,6 +401,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     overflow-x: hidden;
     height: 100%;
   }
+
 
 
 
