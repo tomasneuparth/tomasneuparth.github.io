@@ -290,6 +290,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   content: "";
   display: block;
   height: 96px; /* matches the padding above for consistent feel */
+}
 
 .single-image {
   display: flex;
@@ -322,3 +323,4 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     padding: 10px;
   }
 }
+
