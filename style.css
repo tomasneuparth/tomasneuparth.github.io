@@ -334,5 +334,34 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   text-decoration: underline;
 }
 
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: white;
+    transition: transform 0.4s ease;
+    will-change: transform;
+  }
+
+  .left.hidden {
+    transform: translateY(-100%);
+  }
+
+  .right {
+    width: 100%;
+    margin-top: 100px; /* adjust based on the actual height of your .left pane */
+  }
+
+  body, html {
+    overflow-x: hidden;
+  }
+}
 
 
