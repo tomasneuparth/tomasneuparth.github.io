@@ -15,14 +15,12 @@ window.addEventListener("scroll", function () {
   if (window.innerWidth <= 768 && leftPane) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop) {
-      // Scrolling down — hide left panel
+    if (scrollTop > lastScrollTop + 10) {
       leftPane.classList.add('hidden');
-    } else {
-      // Scrolling up — show left panel
+    } else if (scrollTop < lastScrollTop - 10) {
       leftPane.classList.remove('hidden');
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
   }
-}, false);
+}, { passive: true });
