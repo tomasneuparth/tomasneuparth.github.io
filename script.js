@@ -1,4 +1,3 @@
-// Carousel logic (unchanged)
 const slides = document.querySelectorAll('.carousel img');
 let idx = 0;
 setInterval(() => {
@@ -7,20 +6,27 @@ setInterval(() => {
   slides[idx].classList.add('active');
 }, 4000);
 
-// Scroll-hide logic for left pane (mobile only)
 let lastScrollTop = 0;
+let scrollTimeout;
 const leftPane = document.querySelector('.left');
 
 window.addEventListener("scroll", function () {
   if (window.innerWidth <= 768 && leftPane) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    if (scrollTop > lastScrollTop + 10) {
+    clearTimeout(scrollTimeout);
+
+    if (scrollTop > lastScrollTop + 15) {
       leftPane.classList.add('hidden');
-    } else if (scrollTop < lastScrollTop - 10) {
+    } else if (scrollTop < lastScrollTop - 15) {
       leftPane.classList.remove('hidden');
     }
 
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+    // Prevent re-showing when user stops touching
+    scrollTimeout = setTimeout(() => {
+      lastScrollTop = scrollTop;
+    }, 200);
   }
 }, { passive: true });
