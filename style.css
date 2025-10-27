@@ -329,6 +329,10 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   }
 }
 
+.custom-link {
+  color: black;
+  text-decoration: underline;
+}
 
 
 
