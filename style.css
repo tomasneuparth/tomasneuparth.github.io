@@ -1,4 +1,4 @@
-nter* { margin:0; padding:0; box-sizing:border-box; }
+center* { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; }
 .layout {
   display: flex;
@@ -7,12 +7,14 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 }
 
 .left {
-  width: 50%;
-  padding: 2rem;
-  box-sizing: border-box;
+  width: 40%;
+  background: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  padding: 2rem;
+  box-sizing: border-box;
+  height: 100vh;              /* ✅ force panel to match screen height */
+  overflow-y: auto;           /* ✅ enable scroll if needed */
 }
 
 .logo { width:150px; margin-bottom: 0px; }
@@ -399,6 +401,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     overflow-x: hidden;
     height: 100%;
   }
+
 
 
 
