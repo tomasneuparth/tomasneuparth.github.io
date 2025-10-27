@@ -42,7 +42,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .menu a:hover { text-decoration: underline; }
 
 .intro {
-  margin-top: 200px;
+  margin-top: 100px;
   font-size: 0.95rem;
   line-height: 1.6;
   max-width: 90%;
@@ -401,6 +401,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     overflow-x: hidden;
     height: 100%;
   }
+
 
 
 
