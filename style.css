@@ -20,7 +20,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .logo { width:150px; margin-bottom: 0px; }
 
 .titles h1 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: -10px;
@@ -167,7 +167,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   margin-bottom: 2rem;
 }
 
-.cv-header .id-photo {
+.id-photo {
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -432,6 +432,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
 
