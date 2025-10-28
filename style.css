@@ -53,7 +53,8 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .right {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;  /* ✅ align content to top */
+  padding-top: 2rem;
   height: 100%;
   width: 70%;
   position: relative;
@@ -431,6 +432,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
 
