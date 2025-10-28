@@ -1,11 +1,9 @@
-body {
-  margin: 0;
-  font-family: sans-serif;
-}
-
+center* { margin:0; padding:0; box-sizing:border-box; }
+body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; }
 .layout {
   display: flex;
   height: 100vh;
+  overflow: hidden;
 }
 
 .left {
@@ -15,47 +13,47 @@ body {
   flex-direction: column;
   padding: 2rem;
   box-sizing: border-box;
-  height: 100vh;
-  overflow-y: auto;
+  height: 100vh;              /* ✅ force panel to match screen height */
+  overflow-y: auto;           /* ✅ enable scroll if needed */
 }
 
-.logo {
-  width: 140px;
-}
+.logo { width:150px; margin-bottom: 0px; }
 
 .titles h1 {
-  font-size: 1.2rem;
-  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: -10px;
 }
-
 .titles h2 {
-  font-size: 0.9rem;
-  margin: 0 0 2rem 0;
-}
-
-.menu {
-  display: flex;
-  flex-direction: column;
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 100px;
 }
 
 .menu a {
-  text-decoration: none;
-  color: black;
+  display:block;
+  font-weight: 600;
   margin: 8px 0;
-  font-size: 0.9rem;
+  text-decoration: none;
+  color: #000;
+}
+.menu a:hover { text-decoration: underline; }
+
+.intro {
+  margin-top: 50px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
 }
 
-.intro,
-.contact {
-  font-size: 0.85rem;
-  margin-top: 2rem;
-}
+.contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
 
 .right {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  padding-top: 2rem;
+  align-items: center;
   height: 100%;
   width: 70%;
   position: relative;
@@ -63,85 +61,310 @@ body {
   background: white;
 }
 
+.carousel img {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:auto;
+  height:100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.carousel img.active { opacity: 1; }
+
+
+
+.cv-image {
+  width: 150%;
+  height: auto;
+  max-height: 150%;
+  object-fit: contain;
+  display: block;
+  padding: 20px; /* Optional: Adjust or remove for tighter fit */
+}
+  
+ /* max-width: 120%;
+  max-height: 120%;
+  width: auto;
+  height: auto;
+  display: block;
+  align-items: center;
+  margin: auto;
+  object-fit: contain;*/
+
+.right img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 80px 40px 40px 40px;
+  overflow-y: scroll;
+}
+
+.project-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.3s;
 }
 
 .project-thumb img {
-  max-width: 100%;
-  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces a 4:3 ratio for ALL thumbnails */
+  object-fit: contain;
   display: block;
 }
 
 .project-thumb span {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  text-align: center;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center; 
 }
 
-.single-image img {
-  max-width: 100%;
-  border-radius: 12px;
-  display: block;
+.project-thumb:hover {
+  opacity: 0.7;
 }
 
-/* ✅ CV photo left of text */
+/* ===== Right-side vertical CV (scoped) ===== */
+.cv-content {
+  font: inherit;
+  color: inherit;
+  height: 100%;
+  overflow-y: auto;            /* right pane scrollable only */
+  padding: 24px clamp(16px, 2.5vw, 40px);
+  max-width: 880px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ID photo + headline */
+.cv-id {
+  grid-template-columns: auto 1fr;
+  gap: 16px 18px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 16px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto 1rem auto;
+}
+
+.cv-id-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto 1rem auto;
+}
+
+}
+
+/* the timeline vertical line starts below the photo and runs down */
+.cv-content::before {
+  content: "";
+  position: absolute;
+  /* anchor line under the ID photo */
+  top: 24px;                                 /* aligns with .cv-content padding top */
+  left: calc(50% + 440px);                   /* push far right, then corrected below */
+  width: 0; height: 0;                       /* placeholder, overridden below */
+}
+
 .cv-header {
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
   margin-bottom: 2rem;
-  padding-top: 2rem;
 }
 
-.id-photo {
-  width: 160px;
-  height: 160px;
+.cv-header .id-photo {
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
+  margin: 0;
 }
 
-.cv-content {
-  padding: 2rem;
-  max-width: 700px;
-  margin: 0 auto;
-  color: #000;
-  font-size: 1rem;
-  line-height: 1.6;
+.cv-header p {
+  flex: 1;
+  margin: 0;
 }
 
-.cv-content h3 {
-  margin-top: 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+
+/* Headline text */
+.cv-name { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); letter-spacing: 0.02em; }
+.cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
+
+.cv-overline {
+  font-size: clamp(12px, 1.2vw, 13px);
   text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 16px 0 6px;
+  opacity: 0.9;
 }
 
-.cv-content h4 {
-  margin-top: 1.5rem;
-  font-size: 1.05rem;
-  font-weight: bold;
+.cv-contacts ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 12px 16px;
+  font-size: clamp(12px, 1.2vw, 13px);
+}
+.cv-contacts a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+.cv-section { margin-top: 22px; }
+.cv-section-title {
+  font-size: clamp(13px, 1.3vw, 15px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 10px;
+  opacity: 0.9;
 }
 
-.cv-content ul {
-  padding-left: 1.25rem;
-  margin-bottom: 2rem;
+/* Timeline grid: [node][content][logo] */
+.cv-timeline {
+  position: relative;          /* host for vertical line */
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  column-gap: 16px;
 }
 
-.cv-content ul li {
-  margin-bottom: 0.5rem;
+/* The vertical line itself */
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px;                  /* center of 24px node column */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(0,0,0,0.25);
 }
 
-.cv-content a {
-  text-decoration: underline;
+/* Each item row */
+.cv-item {
+  display: contents;           /* use grid cells declared below */
+}
+
+.cv-node-wrap {
+  grid-column: 1;
+  position: relative;
+}
+.cv-node {
+  position: relative;
+  top: .8em;                   /* aligns node with the baseline of the h3 */
+  display: inline-block;
+  width: 10px; height: 10px;   /* visible circle size */
+  border-radius: 50%;
+  background: #000;
+  outline: 8px solid #fff;     /* creates breathing space from line */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+  text-indent: -9999px;        /* accessible circle */
+}
+.cv-node:focus { box-shadow: 0 0 0 3px rgba(0,0,0,0.35); outline: none; }
+
+.cv-item-body {
+  grid-column: 2;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.cv-item:first-child .cv-item-body { border-top: none; }
+
+.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; }
+.cv-muted { opacity: 0.8; font-weight: 400; }
+.cv-meta { font-size: clamp(12px, 1.2vw, 13px); opacity: 0.85; margin-top: 2px; }
+.cv-bullets { margin: 6px 0 0 0; padding-left: 18px; font-size: clamp(12px, 1.3vw, 14px); }
+.cv-bullets li { margin: 3px 0; }
+
+.cv-logo {
+  grid-column: 3;
+  align-self: start;
+  width: 72px;                 /* logo box size (see asset sizes below) */
+  min-height: 48px;
+  border: 1px dashed rgba(0,0,0,0.25);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: rgba(0,0,0,0.55); padding: 6px;
+}
+
+/* Cards for skills/personality/languages/hobbies */
+.cv-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 10px; }
+.cv-card { padding: 12px 0; border-top: 1px solid rgba(0,0,0,0.1); }
+.cv-tags { list-style: none; padding: 0; margin: 6px 0 0; display: flex; gap: 8px 12px; flex-wrap: wrap; font-size: clamp(12px, 1.3vw, 14px); }
+.cv-tags li { background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 999px; }
+
+/* Mobile refinement */
+@media (max-width: 880px) {
+  .cv-content { padding: 20px 16px; }
+  .cv-id-photo { width: 96px; height: 96px; }
+  .cv-logo { width: 96px; }     /* a bit larger on narrow screens */
+}
+
+/* Extra bottom space so the last lines never sit flush with the viewport edge */
+.cv-content {
+  /* give the scrollable pane some breathing room at the bottom */
+  padding-bottom: max(96px, env(safe-area-inset-bottom) + 48px);
+  scroll-padding-bottom: 96px; /* improves anchor/keyboard focus near the bottom */
+}
+
+/* Fallback spacer in case inner sections collapse margins at the end */
+.cv-content::after {
+  content: "";
+  display: block;
+  height: 96px; /* matches the padding above for consistent feel */
+}
+
+.single-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;               /* Reduced height */
+  width: 100%;
+  box-sizing: border-box;
+  margin: auto;              /* Vertically center in .right */
+}
+
+.single-image img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 12px; /* Rounded corners */
+  object-fit: contain;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+  .layout {
+    flex-direction: column;
+  }
+
+  .left, .right {
+    width: 100%;
+  }
+
+  .single-image {
+    height: auto;
+    padding: 10px;
+  }
+}
+
+.custom-link {
   color: black;
+  text-decoration: underline;
 }
 
-/* 🔽 MOBILE RESPONSIVE */
 @media (max-width: 768px) {
   .layout {
     flex-direction: column;
@@ -152,60 +375,54 @@ body {
     top: 0;
     left: 0;
     width: 100%;
+    z-index: 1000;
+    background: white;
+    transition: transform 0.4s ease;
+    will-change: transform;
     height: 100vh;
     overflow-y: auto;
-    background: white;
-    z-index: 999;
-    transition: transform 0.3s ease;
-    transform: translateX(0);
-    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to top */
   }
 
   .left.hidden {
-    transform: translateX(-100%);
-  }
-
-  .right {
-    width: 100%;
-    margin-top: 40px;
-    padding: 1.5rem;
-    min-height: 180vh;
-    overflow-y: auto;
+    transform: translateX(-100%); /* Slide out to the left */
   }
 
   .logo {
-    width: 130px;
-    margin-bottom: 1rem;
+    width: 120px;
+    margin: 1rem 0;
   }
 
   .titles h1 {
-    font-size: 1.1rem;
-    margin: 0 0 0.25rem 0;
+    font-size: 0.85rem;
+    margin-bottom: -6px;
   }
 
   .titles h2 {
-    font-size: 0.85rem;
-    margin: 0 0 2rem 0;
+    font-size: 0.7rem;
+    margin-bottom: 2rem;
   }
 
   .menu a {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1rem;
+    font-size: 0.9rem;
+    margin: 6px 0;
   }
 
   .intro,
   .contact {
-    font-size: 0.9rem;
-    margin-top: 2rem;
-    line-height: 1.5;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    padding-right: 1rem;
   }
 
-  .cv-content {
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.6;
+  .right {
+   width: 100%;
+   margin-top: 40px; /* ✅ Reduced top spacing */
+   padding: 1.5rem;
+   min-height: 180vh; /* Optional: reduce height slightly */
+   overflow-y: auto;
   }
 
   body,
@@ -213,4 +430,31 @@ body {
     overflow-x: hidden;
     height: 100%;
   }
+
+.cv-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
+
+.id-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cv-text h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+.cv-text p {
+  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
