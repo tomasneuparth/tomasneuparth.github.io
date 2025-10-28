@@ -151,12 +151,17 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
 /* ID photo + headline */
 .cv-id {
-  display: grid;
   grid-template-columns: auto 1fr;
   gap: 16px 18px;
   align-items: center;
   position: relative;
   padding-bottom: 16px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto 1rem auto;
 }
 
 .cv-id-photo {
@@ -401,6 +406,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     overflow-x: hidden;
     height: 100%;
   }
+
 
 
 
