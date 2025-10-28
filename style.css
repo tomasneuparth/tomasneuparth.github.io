@@ -52,8 +52,8 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
 .right {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;  /* ✅ align content to top */
+  justify-content: flex-start;
+  align-items: flex-start;
   padding-top: 2rem;
   height: 100%;
   width: 70%;
@@ -144,7 +144,8 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   color: inherit;
   height: 100%;
   overflow-y: auto;            /* right pane scrollable only */
-  padding: 24px clamp(16px, 2.5vw, 40px);
+  padding: 0 clamp(16px, 2.5vw, 40px);
+  padding-top: 12px;
   max-width: 880px;
   margin: 0 auto;
   line-height: 1.5;
@@ -432,6 +433,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
 
