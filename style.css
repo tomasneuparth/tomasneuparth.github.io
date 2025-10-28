@@ -150,27 +150,6 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 }
 
 /* ID photo + headline */
-.cv-id {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px 18px;
-  align-items: center;
-  position: relative;
-  padding-bottom: 16px;
-}
-
-.cv-id-photo {
-  width: 120px; height: 120px;           /* Display size (see asset sizes below) */
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: 1px solid rgba(0,0,0,0.15);
-}
-
-
-}
-
 /* the timeline vertical line starts below the photo and runs down */
 .cv-content::before {
   content: "";
@@ -453,5 +432,6 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
