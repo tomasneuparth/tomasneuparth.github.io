@@ -409,11 +409,29 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     height: 100%;
   }
 
+.cv-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
 
+.id-photo {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
 
+.cv-text h2 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
 
-
-
-
-
-
+.cv-text p {
+  max-width: 500px;
+  font-size: 1rem;
+  line-height: 1.6;
+}
