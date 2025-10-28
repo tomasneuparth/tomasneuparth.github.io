@@ -185,6 +185,28 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   width: 0; height: 0;                       /* placeholder, overridden below */
 }
 
+.cv-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.cv-header .id-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.cv-header p {
+  flex: 1;
+  margin: 0;
+}
+
+
 /* Headline text */
 .cv-name { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); letter-spacing: 0.02em; }
 .cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
@@ -435,3 +457,4 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
