@@ -183,8 +183,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
 
 /* Headline text */
-.cv-name { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); letter-spacing: 0.02em; }
-.cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
+.cv-summary { margin: 0; font-size: clamp(12px, 1.2vw, 13px); opacity: 0.9; }
 
 .cv-overline {
   font-size: clamp(12px, 1.2vw, 13px);
@@ -432,6 +431,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
 
