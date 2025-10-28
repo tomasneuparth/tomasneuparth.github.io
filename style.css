@@ -179,7 +179,9 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 }
 
 .cv-header p {
-  flex: 1;
+  font-size: clamp(12px, 1.3vw, 14px);  /* Match other normal text */
+  line-height: 1.6;
+  opacity: 0.9;
   margin: 0;
 }
 
@@ -433,6 +435,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   font-size: 1rem;
   line-height: 1.6;
 }
+
 
 
 
