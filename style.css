@@ -20,7 +20,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .logo { width:150px; margin-bottom: 0px; }
 
 .titles h1 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: -10px;
@@ -53,7 +53,8 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .right {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start; /* 🔼 Align content to top */
+  padding-top: 24px;        /* ✅ Add gap to avoid clipping */
   height: 100%;
   width: 70%;
   position: relative;
@@ -160,7 +161,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 }
 
 .cv-id-photo {
-  width: 120px; height: 120px;           /* Display size (see asset sizes below) */
+  width: 150px; height: 150px;           /* Display size (see asset sizes below) */
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
@@ -179,7 +180,12 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 }
 
 /* Headline text */
-.cv-name { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); letter-spacing: 0.02em; }
+.cv-name {
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
 .cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
 
 .cv-overline {
@@ -403,5 +409,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     height: 100%;
   }
 }
+
+
 
 
