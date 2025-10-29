@@ -299,6 +299,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     transition: transform 0.4s ease;
     will-change: transform;
     transform: translateX(0); /* default state */
+    margin-bottom: 16px; /* Optional for breathing space between panels */
   }
 
   .left.hide-on-scroll {
@@ -321,4 +322,5 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     padding: 20px 16px;
   }
 }
+
 
