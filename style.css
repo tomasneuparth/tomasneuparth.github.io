@@ -1,4 +1,4 @@
-center* { margin:0; padding:0; box-sizing:border-box; }
+cennter* { margin:0; padding:0; box-sizing:border-box; }
 body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#fff; }
 .layout {
   display: flex;
@@ -20,7 +20,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .logo { width:150px; margin-bottom: 0px; }
 
 .titles h1 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: -10px;
@@ -52,9 +52,8 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 
 .right {
   display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  padding-top: 2rem;
+  justify-content: center;
+  align-items: center;
   height: 100%;
   width: 70%;
   position: relative;
@@ -144,14 +143,31 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   color: inherit;
   height: 100%;
   overflow-y: auto;            /* right pane scrollable only */
-  padding: 0 clamp(16px, 2.5vw, 40px);
-  padding-top: 12px;
+  padding: 24px clamp(16px, 2.5vw, 40px);
   max-width: 880px;
   margin: 0 auto;
   line-height: 1.5;
 }
 
 /* ID photo + headline */
+.cv-id {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px 18px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.cv-id-photo {
+  width: 120px; height: 120px;           /* Display size (see asset sizes below) */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
 /* the timeline vertical line starts below the photo and runs down */
 .cv-content::before {
   content: "";
@@ -162,35 +178,9 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   width: 0; height: 0;                       /* placeholder, overridden below */
 }
 
-.cv-header {
-  display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  width: 100%;
-  padding: 24px clamp(16px, 2.5vw, 40px);
-  box-sizing: border-box;
-}
-
-
-.id-photo {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  flex-shrink: 0;
-  margin: 0;
-}
-
-.cv-header p {
-  font-size: clamp(12px, 1.3vw, 14px);
-  line-height: 1.6;
-  opacity: 0.9;
-  margin: 0;
-}
-
-
 /* Headline text */
-.cv-summary { margin: 0; font-size: clamp(12px, 1.2vw, 13px); opacity: 0.9; }
+.cv-name { margin: 0 0 6px; font-size: clamp(20px, 3vw, 30px); letter-spacing: 0.02em; }
+.cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
 
 .cv-overline {
   font-size: clamp(12px, 1.2vw, 13px);
@@ -312,7 +302,7 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90%;               /* Reduced height */
+  height: 80%;               /* Reduced height */
   width: 100%;
   box-sizing: border-box;
   margin: auto;              /* Vertically center in .right */
@@ -399,11 +389,12 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
   }
 
   .right {
-   width: 100%;
-   margin-top: 40px; /* ✅ Reduced top spacing */
-   padding: 1.5rem;
-   min-height: 180vh; /* Optional: reduce height slightly */
-   overflow-y: auto;
+    width: 100%;
+    margin-top: 100px;
+    padding: 1rem;
+    min-height: 250vh; /* Ensure scroll space triggers */
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   body,
@@ -411,39 +402,6 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
     overflow-x: hidden;
     height: 100%;
   }
-
-.cv-wrapper {
-  display: flex;
-  gap: 2rem;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  margin-top: 2rem;
 }
-
-.id-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.cv-text h2 {
-  font-size: 1.5rem;
-  line-height: 1.4;
-  margin-bottom: 1rem;
-}
-
-.cv-text p {
-  max-width: 500px;
-  font-size: 1rem;
-  line-height: 1.6;
-}
-
-
-
-
-
-
-
 
 
