@@ -283,134 +283,42 @@ body, html { height:100%; width:100%; font-family: 'Segoe UI', Tahoma, Geneva, V
 .cv-tags { list-style: none; padding: 0; margin: 6px 0 0; display: flex; gap: 8px 12px; flex-wrap: wrap; font-size: clamp(12px, 1.3vw, 14px); }
 .cv-tags li { background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 999px; }
 
-/* Mobile refinement */
 @media (max-width: 880px) {
-  .cv-content { padding: 20px 16px; }
-  .cv-id-photo { width: 96px; height: 96px; }
-  .cv-logo { width: 96px; }     /* a bit larger on narrow screens */
-}
-
-/* Extra bottom space so the last lines never sit flush with the viewport edge */
-.cv-content {
-  /* give the scrollable pane some breathing room at the bottom */
-  padding-bottom: max(96px, env(safe-area-inset-bottom) + 48px);
-  scroll-padding-bottom: 96px; /* improves anchor/keyboard focus near the bottom */
-}
-
-/* Fallback spacer in case inner sections collapse margins at the end */
-.cv-content::after {
-  content: "";
-  display: block;
-  height: 96px; /* matches the padding above for consistent feel */
-}
-
-.single-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80%;               /* Reduced height */
-  width: 100%;
-  box-sizing: border-box;
-  margin: auto;              /* Vertically center in .right */
-}
-
-.single-image img {
-  max-width: 100%;
-  max-height: 100%;
-  border-radius: 12px; /* Rounded corners */
-  object-fit: contain;
-}
-
-/* Responsive behavior */
-@media (max-width: 768px) {
-  .layout {
+  .container {
     flex-direction: column;
-  }
-
-  .left, .right {
-    width: 100%;
-  }
-
-  .single-image {
     height: auto;
-    padding: 10px;
-  }
-}
-
-.custom-link {
-  color: black;
-  text-decoration: underline;
-}
-
-@media (max-width: 768px) {
-  .layout {
-    flex-direction: column;
+    overflow-x: hidden;
   }
 
   .left {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: 1000;
-    background: white;
+    height: auto;
+    position: relative;
+    z-index: 1;
+    padding: 16px;
     transition: transform 0.4s ease;
     will-change: transform;
-    height: 100vh;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start; /* Align content to top */
+    transform: translateX(0); /* default state */
   }
 
-  .left.hidden {
-    transform: translateX(-100%); /* Slide out to the left */
-  }
-
-  .logo {
-    width: 120px;
-    margin: 1rem 0;
-  }
-
-  .titles h1 {
-    font-size: 0.85rem;
-    margin-bottom: -6px;
-  }
-
-  .titles h2 {
-    font-size: 0.7rem;
-    margin-bottom: 2rem;
-  }
-
-  .menu a {
-    font-size: 0.9rem;
-    margin: 6px 0;
-  }
-
-  .intro,
-  .contact {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    padding-right: 1rem;
+  .left.hide-on-scroll {
+    transform: translateX(-100%); /* hide off-screen to the left */
   }
 
   .right {
     width: 100%;
-    margin-top: 100px;
-    padding: 1rem;
-    min-height: 250vh; /* Ensure scroll space triggers */
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: auto;
+    padding: 16px;
+    align-items: flex-start;
   }
 
-  body,
-  html {
-    overflow-x: hidden;
-    height: 100%;
+  .single-image {
+    height: auto;
+    padding-top: 16px;
+  }
+
+  .cv-content {
+    padding: 20px 16px;
   }
 }
-
-
-
-
 
