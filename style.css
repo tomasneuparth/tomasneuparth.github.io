@@ -302,7 +302,7 @@ body, html {
     overflow-x: hidden;
 }
 
-  .left {
+.left {
   position: fixed;
   top: 0;
   left: 0;
@@ -317,7 +317,7 @@ body, html {
 .left.hide-on-scroll {
   transform: translateX(-100%);
 }
-
+  
   .right {
     width: 100%;
     height: auto;
@@ -334,6 +334,7 @@ body, html {
     padding: 20px 16px;
   }
 }
+
 
 
 
