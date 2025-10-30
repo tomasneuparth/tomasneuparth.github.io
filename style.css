@@ -368,6 +368,7 @@ body, html {
   .single-image {
     padding: 12px;
     height: 100vh;
+    object-fit: contain;     /* changed from 'cover' to 'contain' */
     box-sizing: border-box;
     border-radius: 16px;
   }
@@ -419,6 +420,7 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
 
