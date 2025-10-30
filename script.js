@@ -13,7 +13,7 @@ let scrollTimeout;
 const leftPane = document.querySelector('.left');
 
 window.addEventListener("scroll", function () {
-  if (window.innerWidth <= 768 && leftPane) {
+  if (window.innerWidth <= 880 && leftPane) {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     clearTimeout(scrollTimeout);
@@ -31,3 +31,4 @@ window.addEventListener("scroll", function () {
     }, 200);
   }
 }, { passive: true });
+
