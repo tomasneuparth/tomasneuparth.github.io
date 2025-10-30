@@ -392,8 +392,9 @@ body, html {
 }
   
   .intro,
-  .cv-contacts,
+  .contact,
   .cv-summary,
+  .cv-contacts a,
   .cv-contacts ul {
     font-size: clamp(11px, 2.5vw, 14px);
   }
@@ -417,6 +418,7 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
 
