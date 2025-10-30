@@ -20,14 +20,18 @@ body, html {
 }
 
 .left {
+  position: fixed;            /* ✅ Locks panel in place */
+  top: 0;
+  left: 0;
   width: 40%;
+  height: 100vh;
   background: #fff;
   display: flex;
   flex-direction: column;
   padding: 2rem;
   box-sizing: border-box;
-  height: 100vh;              /* ✅ force panel to match screen height */
-  overflow-y: auto;           /* ✅ enable scroll if needed */
+  overflow: hidden;           /* ✅ Prevents scrolling */
+  z-index: 10;
 }
 
 .logo { width:150px; margin-bottom: 0px; }
@@ -64,19 +68,19 @@ body, html {
 .contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
 
 .right {
+  position: absolute;         /* ✅ Detaches from layout flow */
+  top: 0;
+  left: 40%;                  /* ✅ Starts where the left panel ends */
+  width: 60%;                 /* ✅ Adjust to match 40/60 split */
+  height: 100vh;
+  overflow-y: auto;           /* ✅ Scrollable */
+  background: white;
+  padding-top: 24px;
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* 🔼 Align content to top */
-  padding-top: 24px;        /* ✅ Add gap to avoid clipping */
-  height: auto;
-  width: 70%;
-  position: relative;
-  overflow: hidden;
-  background: white;
-  overflow-y: auto;
-  min-height: 100vh; /* Ensure it stretches if needed */
+  align-items: flex-start;
+  box-sizing: border-box;
 }
-
 .carousel img {
   position:absolute;
   top:50%;
@@ -337,6 +341,7 @@ body, html {
     padding: 20px 16px;
   }
 }
+
 
 
 
