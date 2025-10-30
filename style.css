@@ -14,8 +14,9 @@ body, html {
 
 .layout {
   display: flex;
-  height: 100vh;
   overflow: hidden;
+  flex-direction: row;
+  min-height: 100vh; /* Optional: to ensure full screen on short content */
 }
 
 .left {
@@ -67,11 +68,13 @@ body, html {
   justify-content: center;
   align-items: flex-start; /* 🔼 Align content to top */
   padding-top: 24px;        /* ✅ Add gap to avoid clipping */
-  height: 100%;
+  height: auto;
   width: 70%;
   position: relative;
   overflow: hidden;
   background: white;
+  overflow-y: auto;
+  min-height: 100vh; /* Ensure it stretches if needed */
 }
 
 .carousel img {
@@ -334,6 +337,7 @@ body, html {
     padding: 20px 16px;
   }
 }
+
 
 
 
