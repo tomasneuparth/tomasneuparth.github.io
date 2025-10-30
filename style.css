@@ -366,6 +366,7 @@ body, html {
 
   /* Home page image specific */
   .single-image {
+    position: fixed;            /* ✅ Locks image in place */
     padding: 12px;
     height: 100vh;
     object-fit: contain;     /* changed from 'cover' to 'contain' */
@@ -374,6 +375,7 @@ body, html {
   }
 
   .single-image img {
+    position: fixed;            /* ✅ Locks image in place */
     width: 100%;
     height: 100%;
     object-fit: contain;     /* changed from 'cover' to 'contain' */
@@ -420,6 +422,7 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
 
