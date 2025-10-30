@@ -67,6 +67,21 @@ body, html {
 
 .contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
 
+.right {
+  position: absolute;         /* ✅ Detaches from layout flow */
+  top: 0;
+  left: 40%;                  /* ✅ Starts where the left panel ends */
+  width: 60%;                 /* ✅ Adjust to match 40/60 split */
+  height: 100vh;
+  overflow-y: auto;           /* ✅ Scrollable */
+  background: white;
+  padding-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
 /* === Kid Image Styling === */
 .single-image {
   display: flex;
@@ -89,20 +104,6 @@ body, html {
   border-radius: 16px;
 }
 
-.right {
-  position: absolute;         /* ✅ Detaches from layout flow */
-  top: 0;
-  left: 40%;                  /* ✅ Starts where the left panel ends */
-  width: 60%;                 /* ✅ Adjust to match 40/60 split */
-  height: 100vh;
-  overflow-y: auto;           /* ✅ Scrollable */
-  background: white;
-  padding-top: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-}
 .carousel img {
   position:absolute;
   top:50%;
@@ -115,8 +116,6 @@ body, html {
 }
 
 .carousel img.active { opacity: 1; }
-
-
 
 .cv-image {
   width: 150%;
@@ -364,6 +363,7 @@ body, html {
     padding: 20px 16px;
   }
 }
+
 
 
 
