@@ -7,28 +7,24 @@ setInterval(() => {
   slides[idx].classList.add('active');
 }, 4000);
 
-// Scroll-hide logic for left pane (mobile only)
-let lastScrollTop = 0;
-let scrollTimeout;
-const leftPane = document.querySelector('.left');
+// Mobile left-pane hide/show on scroll direction
+document.addEventListener("DOMContentLoaded", function () {
+  let lastScrollTop = 0;
+  const leftPane = document.querySelector(".left");
 
-window.addEventListener("scroll", function () {
   if (window.innerWidth <= 880 && leftPane) {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    clearTimeout(scrollTimeout);
+      if (scrollTop > lastScrollTop) {
+        // Scrolling down — hide left panel
+        leftPane.classList.add("hide-on-scroll");
+      } else if (scrollTop === 0) {
+        // Scrolling to top — show left panel
+        leftPane.classList.remove("hide-on-scroll");
+      }
 
-    if (scrollTop > lastScrollTop + 15) {
-      leftPane.classList.add('hidden');
-    } else if (scrollTop < lastScrollTop - 15) {
-      leftPane.classList.remove('hidden');
-    }
-
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-
-    scrollTimeout = setTimeout(() => {
-      lastScrollTop = scrollTop;
-    }, 200);
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
   }
-}, { passive: true });
-
+});
