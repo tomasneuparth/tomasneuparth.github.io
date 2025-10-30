@@ -379,9 +379,16 @@ body, html {
   }
 
   /* Font scaling for left panel */
+
+  .titles h2 {
+  margin-bottom: 0.5rem; /* tighter spacing between title and menu */
+}
+  
   .menu a {
+  display: block;
   font-size: clamp(12px, 3vw, 14px); /* smaller font on mobile */
   line-height: 1.2;
+  margin-top: 1rem;  /* Reduce top spacing */
 }
   
   .intro,
@@ -410,5 +417,6 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
