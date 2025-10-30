@@ -98,12 +98,8 @@ body, html {
   max-height: 80vh;            /* Avoids exceeding screen height */
   border-radius: 16px;         /* Rounded corners */
   object-fit: cover;
-}
-
-.single-image img {
-  width: 60%;
+  width: 40%;
   height: auto;
-  border-radius: 16px;
 }
 
 .carousel img {
@@ -422,6 +418,7 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
 
