@@ -17,10 +17,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       if (scrollTop > lastScrollTop) {
-        // Scrolling down — hide left panel
         leftPane.classList.add("hide-on-scroll");
       } else if (scrollTop === 0) {
-        // Scrolling to top — show left panel
         leftPane.classList.remove("hide-on-scroll");
       }
 
@@ -28,3 +26,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }, { passive: true });
   }
 });
+
