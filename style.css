@@ -369,6 +369,7 @@ body, html {
     padding: 12px;
     height: 100vh;
     box-sizing: border-box;
+    border-radius: 16px;
   }
 
   .single-image img {
@@ -418,6 +419,7 @@ body, html {
     min-height: 32px;
   }
 }
+
 
 
 
