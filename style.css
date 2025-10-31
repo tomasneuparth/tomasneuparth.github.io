@@ -19,6 +19,8 @@ body, html {
   min-height: 100vh; /* Optional: to ensure full screen on short content */
 }
 
+/*==>LEFT PANEL<==*/
+
 .left {
   position: fixed;            /* ✅ Locks panel in place */
   top: 0;
@@ -69,7 +71,15 @@ body, html {
   text-decoration: underline; 
 }
 
-.contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
+.menu {
+  margin-bottom: 80px;  /* space value A */
+}
+
+.contact { 
+  margin-top: auto; 
+  font-size:0.95rem; 
+  line-height:1.5; 
+}
 
 .right {
   position: absolute;         /* ✅ Detaches from layout flow */
@@ -465,6 +475,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
