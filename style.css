@@ -70,7 +70,7 @@ body, html {
   display:block;
   font-weight: 600;
   text-decoration: none;
-  color: #000;
+  color: #A52A2A;
 }
 .menu a:hover { 
   text-decoration: underline; 
@@ -479,6 +479,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
