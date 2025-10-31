@@ -49,22 +49,24 @@ body, html {
   margin-bottom: 80px;
 }
 
-.menu a {
-  display:block;
-  font-weight: 600;
-  margin:50px;
-  text-decoration: none;
-  color: #000;
-}
-.menu a:hover { 
-  text-decoration: underline; 
-}
-
 .intro {
   margin-top: 10px;
   font-size: 0.95rem;
   line-height: 1.6;
   max-width: 90%;
+  margin-bottom: 80px;
+}
+
+.menu a {
+  margin-top: 10px;
+  display:block;
+  font-weight: 600;
+  margin:8px;
+  text-decoration: none;
+  color: #000;
+}
+.menu a:hover { 
+  text-decoration: underline; 
 }
 
 .contact { margin-top: auto; font-size:0.95rem; line-height:1.5; }
@@ -463,6 +465,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
