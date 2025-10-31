@@ -61,6 +61,7 @@ body, html {
   margin-top: 10px;
   display:block;
   font-weight: 600;
+  margin: 8px;
   text-decoration: none;
   color: #000;
 }
@@ -464,6 +465,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
