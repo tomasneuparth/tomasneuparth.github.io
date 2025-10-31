@@ -81,6 +81,7 @@ body, html {
 }
 
 .contact { 
+  margin-top: auto;
   font-size:0.95rem; 
   line-height:1.5; 
 }
@@ -479,6 +480,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
