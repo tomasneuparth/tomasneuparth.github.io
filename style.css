@@ -372,7 +372,7 @@ body.home .single-image img {
     width: 100%;
     height: 100vh;
     background: white;
-    z-index: 10;
+    z-index: 1000;
     transition: transform 0.4s ease;
     transform: translateX(0);
     padding: 1.5rem;
@@ -385,7 +385,7 @@ body.home .single-image img {
   .right {
   position: absolute;         /* ✅ Detaches from layout flow */
   top: 0;
-  left: 0%;                  /* ✅ Starts where the left panel ends */
+  left: 0;                  /* ✅ Starts where the left panel ends */
   width: 100%;                 /* ✅ Adjust to match 40/60 split */
   height: 100vh;
   overflow-y: auto;           /* ✅ Scrollable */
@@ -397,13 +397,18 @@ body.home .single-image img {
   box-sizing: border-box;
   z-index: 1;           /* Lower layer */
 }
+
+.right.lock-scroll {
+  overflow: hidden;
+  pointer-events: none;
+}
   
   /* Home page image specific */
   body.home .right {
   position: fixed;
   top: 0;
-  left: 40%;             /* ✅ Starts after the left panel */
-  width: 60%;            /* ✅ Only takes remaining screen */
+  left: 0;             /* ✅ Starts after the left panel */
+  width: 100%;            /* ✅ Only takes remaining screen */
   height: 100vh;
   overflow: hidden;
   background: white;
@@ -424,13 +429,12 @@ body.home .single-image {
   border-radius: 16px;
   box-sizing: border-box;
   z-index: 1;           /* Lower layer */
-  position: fixed;      /* Already set, just highlighting */
 }
 
 /* Image itself */
 body.home .single-image img {
   width: 60vw;
-  max-width: 500px;
+  max-width: 90vw;
   height: auto;
   object-fit: contain;
   border-radius: 16px;
@@ -483,6 +487,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
