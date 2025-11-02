@@ -9,26 +9,21 @@ setInterval(() => {
 
 // Mobile left-pane hide/show on scroll direction
 document.addEventListener("DOMContentLoaded", function () {
+  let lastScrollTop = 0;
   const leftPane = document.querySelector(".left");
-  let lastScrollY = window.pageYOffset;
 
-  function onScroll() {
-    if (window.innerWidth > 880 || !leftPane) return;
+  if (window.innerWidth <= 880 && leftPane) {
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-    const currentScrollY = window.pageYOffset;
+      if (scrollTop > lastScrollTop + 10) {
+        leftPane.classList.add("hidden");
+      } else if (scrollTop < lastScrollTop - 10 && scrollTop <= 0) {
+        leftPane.classList.remove("hidden");
+      }
 
-    if (currentScrollY > lastScrollY + 5) {
-      // Scrolling down
-      leftPane.classList.add("hide-on-scroll");
-    } else if (currentScrollY === 0) {
-      // At top of page: reveal
-      leftPane.classList.remove("hide-on-scroll");
-    }
-
-    lastScrollY = currentScrollY <= 0 ? 0 : currentScrollY;
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, { passive: true });
   }
-
-  window.addEventListener("scroll", onScroll, { passive: true });
 });
-
 
