@@ -395,6 +395,7 @@ body.home .single-image img {
   justify-content: center;
   align-items: flex-start;
   box-sizing: border-box;
+  z-index: 1;           /* Lower layer */
 }
   /* Home page image specific */
   body.home .right {
@@ -408,6 +409,7 @@ body.home .single-image img {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 1; /* Make sure it's behind the left panel */
 }
 
 /* Image wrapper */
@@ -420,6 +422,8 @@ body.home .single-image {
   object-fit: contain;
   border-radius: 16px;
   box-sizing: border-box;
+  z-index: 1;           /* Lower layer */
+  position: fixed;      /* Already set, just highlighting */
 }
 
 /* Image itself */
@@ -477,6 +481,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
