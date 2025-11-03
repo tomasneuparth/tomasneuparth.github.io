@@ -365,7 +365,8 @@ body.home .single-image img {
     overflow-x: hidden;
   }
 
-  .left {
+  /* ========== HOME PAGE ========== */
+  body.home .left {
     position: fixed;
     top: 0;
     left: 0;
@@ -378,37 +379,15 @@ body.home .single-image img {
     padding: 1.5rem;
   }
 
-  .left.hide-on-scroll {
+  body.home .left.hide-on-scroll {
     transform: translateX(-100%);
   }
 
-  .right {
-  position: absolute;         /* ✅ Detaches from layout flow */
-  top: 0;
-  left: 0;                  /* ✅ Starts where the left panel ends */
-  width: 100%;                 /* ✅ Adjust to match 40/60 split */
-  height: 100vh;
-  overflow-y: auto;           /* ✅ Scrollable */
-  background: white;
-  padding-top: 24px;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  box-sizing: border-box;
-  z-index: 1;           /* Lower layer */
-}
-
-.right.lock-scroll {
-  overflow: hidden;
-  pointer-events: none;
-}
-  
-  /* Home page image specific */
   body.home .right {
   position: fixed;
   top: 0;
   left: 0;             /* ✅ Starts after the left panel */
-  width: 100%;            /* ✅ Only takes remaining screen */
+  width: 100%;            /* ✅ Only takes remaining screen */  /* ✅ Adjust to match 40/60 split */
   height: 100vh;
   overflow: hidden;
   background: white;
@@ -416,6 +395,11 @@ body.home .single-image img {
   justify-content: center;
   align-items: center;
   z-index: 1; /* Make sure it's behind the left panel */
+}
+
+body.home .right.lock-scroll {
+  overflow: hidden;
+  pointer-events: none;
 }
 
 /* Image wrapper */
@@ -442,7 +426,45 @@ body.home .single-image img {
   z-index: 1;           /* Lower layer */
 }
 
-  /* Font scaling for left panel */
+ /* ========== CV PAGE ========== */
+  body.cv .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 1000;
+    transition: transform 0.4s ease;
+    transform: translateX(0);
+    padding: 1.5rem;
+  }
+
+  body.cv .left.hide-on-scroll {
+    transform: translateX(-100%);
+  }
+
+  body.cv .right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background: white;
+    overflow-y: auto;
+    z-index: 1;
+    padding-top: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+
+  body.cv .right.lock-scroll {
+    overflow: hidden;
+    pointer-events: none;
+  
+  /* ========== FONT SCALING FOR LEFT PANEL ========== */
 
   .titles h2 {
   margin-bottom: 0.5rem; /* tighter spacing between title and menu */
@@ -487,6 +509,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
