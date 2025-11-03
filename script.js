@@ -1,52 +1,78 @@
 // =======================================
-// MOBILE PANEL SCROLL BEHAVIOR
+// 1) SAFE CAROUSEL (won't break pages without it)
+// =======================================
+document.addEventListener("DOMContentLoaded", () => {
+  const slides = document.querySelectorAll(".carousel img");
+  if (slides.length) {
+    let idx = 0;
+    setInterval(() => {
+      slides[idx].classList.remove("active");
+      idx = (idx + 1) % slides.length;
+      slides[idx].classList.add("active");
+    }, 4000);
+  }
+});
+
+// =======================================
+// 2) MOBILE PANEL SCROLL BEHAVIOR
+// =======================================
 document.addEventListener("DOMContentLoaded", () => {
   const leftPane = document.querySelector(".left");
   const rightPane = document.querySelector(".right");
   const body = document.body;
+  const MOBILE_MAX = 880;
 
+  // if we don't have the layout, or we're on desktop, stop here
   if (!leftPane || !rightPane) return;
-  if (window.innerWidth > 880) return; // Desktop unaffected
+  if (window.innerWidth > MOBILE_MAX) return;
 
-  // === INITIAL STATE FIX ===
+  // ===== INITIAL STATE (IMPORTANT) =====
+  // we force the menu to be on top and visible
   leftPane.classList.remove("hide-on-scroll");
-  leftPane.classList.remove("show-on-load"); // reset in case of reload
-  rightPane.classList.remove("lock-scroll");
+  leftPane.classList.add("show-on-load");
+  leftPane.style.transform = "translateX(0)";
+  leftPane.style.zIndex = "2000";
 
-  // For HOME page: ensure menu visible & above image
+  // right panel always behind on mobile
+  rightPane.style.zIndex = "1000";
+
+  // home page: image should not scroll
   if (body.classList.contains("home")) {
-    leftPane.classList.add("show-on-load");  // visible on load
-    rightPane.classList.add("lock-scroll");  // image locked
-    leftPane.style.zIndex = "2000";
-    rightPane.style.zIndex = "1000";
+    rightPane.classList.add("lock-scroll");
   }
 
+  // state
+  let isLeftVisible = true;
   let lastScrollTop = 0;
-  let isLeftVisible = true; // start with menu visible
   let touchStartY = 0;
-  const threshold = 20; // smooth out touch scrolling
+  const threshold = 20;
 
   // helper functions
   const showLeft = () => {
     leftPane.classList.remove("hide-on-scroll");
     leftPane.classList.add("show-on-load");
+    leftPane.style.transform = "translateX(0)";
+    isLeftVisible = true;
+
     if (body.classList.contains("cv")) {
       rightPane.classList.add("lock-scroll");
-      rightPane.scrollTop = 0; // reset scroll when panel reopens
+      rightPane.scrollTop = 0;
     }
-    isLeftVisible = true;
   };
 
   const hideLeft = () => {
     leftPane.classList.remove("show-on-load");
     leftPane.classList.add("hide-on-scroll");
+    // when we hide, we slide it left
+    leftPane.style.transform = "translateX(-100%)";
+    isLeftVisible = false;
+
     if (body.classList.contains("cv")) {
       rightPane.classList.remove("lock-scroll");
     }
-    isLeftVisible = false;
   };
 
-  // Track scroll direction properly on touch
+  // ===== TOUCH HANDLERS (for phones) =====
   window.addEventListener(
     "touchstart",
     e => {
@@ -61,9 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const touchY = e.touches[0].clientY;
       const delta = touchY - touchStartY;
 
-      // HOME PAGE LOGIC (menu visible by default)
+      // HOME: swipe up -> hide menu, swipe down -> show menu
       if (body.classList.contains("home")) {
-        // Swiping UP hides menu, swiping DOWN shows it again
         if (delta < -threshold && isLeftVisible) {
           hideLeft();
         } else if (delta > threshold && !isLeftVisible) {
@@ -71,20 +96,21 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
 
-      // CV PAGE LOGIC
+      // CV: similar, but only show again when at top
       if (body.classList.contains("cv")) {
         const atTop = rightPane.scrollTop <= 0;
+
         if (delta < -threshold && isLeftVisible) {
-          hideLeft(); // swipe up hides left, unlock right scroll
+          hideLeft(); // swipe up hides left, unlocks scroll
         } else if (delta > threshold && !isLeftVisible && atTop) {
-          showLeft(); // swipe down from top reveals left
+          showLeft(); // swipe down from top shows left again
         }
       }
     },
     { passive: true }
   );
 
-  // Also handle standard scroll (mousewheel / inertia)
+  // ===== SCROLL HANDLER (for mousewheel / inertia) =====
   window.addEventListener(
     "scroll",
     () => {
@@ -93,18 +119,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // HOME
       if (body.classList.contains("home")) {
-        if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
-        else if (scrollTop < lastScrollTop - threshold && !isLeftVisible)
+        if (scrollTop > lastScrollTop + threshold && isLeftVisible) {
+          hideLeft();
+        } else if (scrollTop < lastScrollTop - threshold && !isLeftVisible) {
           showLeft();
-        rightPane.classList.add("lock-scroll"); // keep image static
+        }
+        // always keep image fixed on home
+        rightPane.classList.add("lock-scroll");
       }
 
       // CV
-      else if (body.classList.contains("cv")) {
+      if (body.classList.contains("cv")) {
         const atTop = rightPane.scrollTop <= 0;
-        if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
-        else if (scrollTop < lastScrollTop - threshold && !isLeftVisible && atTop)
+        if (scrollTop > lastScrollTop + threshold && isLeftVisible) {
+          hideLeft();
+        } else if (
+          scrollTop < lastScrollTop - threshold &&
+          !isLeftVisible &&
+          atTop
+        ) {
           showLeft();
+        }
       }
 
       lastScrollTop = Math.max(scrollTop, 0);
@@ -112,14 +147,12 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 
-  // Reset everything when resizing to desktop
+  // ===== RESIZE SAFETY (back to desktop) =====
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 880) {
+    if (window.innerWidth > MOBILE_MAX) {
       leftPane.classList.remove("hide-on-scroll", "show-on-load");
+      leftPane.style.transform = "";
       rightPane.classList.remove("lock-scroll");
     }
   });
 });
-
-
-
