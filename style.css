@@ -435,6 +435,14 @@ body.home .single-image img {
     line-height: 1.4;
     margin-top: auto;
   }
+
+  /* Page vertical spacing tweak */
+   body.home .center-content {
+    margin-top: -1.2rem;   /* move intro+menu+contact slightly up */
+  }
+
+  /* Optional: if it feels too tight, you can adjust this value between -1rem and -2rem */
 }
+
 
 
