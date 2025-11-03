@@ -1,53 +1,98 @@
-// Carousel logic (unchanged)
+// =======================================
+// CAROUSEL (unchanged)
 const slides = document.querySelectorAll('.carousel img');
 let idx = 0;
-setInterval(() => {
-  slides[idx].classList.remove('active');
-  idx = (idx + 1) % slides.length;
-  slides[idx].classList.add('active');
-}, 4000);
+if (slides.length) {
+  setInterval(() => {
+    slides[idx].classList.remove('active');
+    idx = (idx + 1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 4000);
+}
 
-// Mobile left-pane hide/show on scroll direction
-document.addEventListener("DOMContentLoaded", function () {
-  let lastScrollTop = 0;
+// =======================================
+// MOBILE PANEL SCROLL BEHAVIOR
+document.addEventListener("DOMContentLoaded", () => {
   const leftPane = document.querySelector(".left");
   const rightPane = document.querySelector(".right");
   const body = document.body;
 
-  if (window.innerWidth <= 880 && leftPane) {
-    window.addEventListener("scroll", function () {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  if (!leftPane || !rightPane) return;
+  if (window.innerWidth > 880) return; // Desktop unaffected
 
-      // === HOME PAGE BEHAVIOR ===
-      if (body.classList.contains("home")) {
-        if (scrollTop > lastScrollTop + 10) {
-          leftPane.classList.add("hide-on-scroll");
-        } else if (scrollTop < lastScrollTop - 10) {
-          leftPane.classList.remove("hide-on-scroll");
-        }
+  let lastScrollTop = 0;
+  let isLeftVisible = true;
+  let touchStartY = 0;
+  const threshold = 20; // smooth out touch scrolling
 
-        // prevent any scroll effects on right panel (image)
-        if (rightPane) {
-          rightPane.classList.add("lock-scroll");
-        }
+  // helper functions
+  const showLeft = () => {
+    leftPane.classList.remove("hide-on-scroll");
+    if (body.classList.contains("cv")) {
+      rightPane.classList.add("lock-scroll");
+      rightPane.scrollTop = 0; // reset scroll when panel reopens
+    }
+    isLeftVisible = true;
+  };
+
+  const hideLeft = () => {
+    leftPane.classList.add("hide-on-scroll");
+    if (body.classList.contains("cv")) {
+      rightPane.classList.remove("lock-scroll");
+    }
+    isLeftVisible = false;
+  };
+
+  // Track scroll direction properly on touch
+  window.addEventListener("touchstart", e => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener("touchmove", e => {
+    const touchY = e.touches[0].clientY;
+    const delta = touchY - touchStartY;
+
+    // HOME PAGE LOGIC
+    if (body.classList.contains("home")) {
+      if (delta < -threshold && isLeftVisible) {
+        hideLeft();
+      } else if (delta > threshold && !isLeftVisible) {
+        showLeft();
       }
+    }
 
-      // === CV PAGE BEHAVIOR ===
-      else if (body.classList.contains("cv")) {
-        if (scrollTop > lastScrollTop + 10) {
-          leftPane.classList.add("hide-on-scroll");
-          if (rightPane) {
-            rightPane.classList.remove("lock-scroll"); // allow scroll
-          }
-        } else if (scrollTop <= 0) {
-          leftPane.classList.remove("hide-on-scroll");
-          if (rightPane) {
-            rightPane.classList.add("lock-scroll"); // lock scroll again
-          }
-        }
+    // CV PAGE LOGIC
+    if (body.classList.contains("cv")) {
+      const atTop = rightPane.scrollTop <= 0;
+
+      if (delta < -threshold && isLeftVisible) {
+        hideLeft(); // swipe up hides left, unlock right scroll
+      } 
+      else if (delta > threshold && !isLeftVisible && atTop) {
+        showLeft(); // swipe down from top reveals left
       }
+    }
+  }, { passive: true });
 
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    }, { passive: true });
-  }
+  // Also handle standard scroll (mousewheel / inertia)
+  window.addEventListener("scroll", () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    // HOME
+    if (body.classList.contains("home")) {
+      if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
+      else if (scrollTop < lastScrollTop - threshold && !isLeftVisible) showLeft();
+      rightPane.classList.add("lock-scroll"); // prevent image scroll
+    }
+
+    // CV
+    else if (body.classList.contains("cv")) {
+      const atTop = rightPane.scrollTop <= 0;
+      if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
+      else if (scrollTop < lastScrollTop - threshold && !isLeftVisible && atTop) showLeft();
+    }
+
+    lastScrollTop = Math.max(scrollTop, 0);
+  }, { passive: true });
 });
+
