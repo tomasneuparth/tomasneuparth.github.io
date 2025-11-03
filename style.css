@@ -355,7 +355,12 @@ body.home .single-image img {
 .cv-tags li { background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 999px; }
 
 
+/* =======================================
+   MOBILE VERSION
+   ======================================= */
 @media (max-width: 880px) {
+
+  /* --- GENERAL --- */
   body, html {
     overflow-x: hidden;
   }
@@ -365,7 +370,9 @@ body.home .single-image img {
     overflow-x: hidden;
   }
 
-  /* ========== HOME PAGE ========== */
+  /* =======================================
+     HOME PAGE
+     ======================================= */
   body.home .left {
     position: fixed;
     top: 0;
@@ -377,6 +384,7 @@ body.home .single-image img {
     transition: transform 0.4s ease;
     transform: translateX(0);
     padding: 1.5rem;
+    overflow: hidden;
   }
 
   body.home .left.hide-on-scroll {
@@ -384,49 +392,48 @@ body.home .single-image img {
   }
 
   body.home .right {
-  position: fixed;
-  top: 0;
-  left: 0;             /* ✅ Starts after the left panel */
-  width: 100%;            /* ✅ Only takes remaining screen */  /* ✅ Adjust to match 40/60 split */
-  height: 100vh;
-  overflow: hidden;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1; /* Make sure it's behind the left panel */
-}
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+  }
 
-body.home .right.lock-scroll {
-  overflow: hidden;
-  pointer-events: none;
-}
+  body.home .right.lock-scroll {
+    overflow: hidden;
+    pointer-events: none;
+  }
 
-/* Image wrapper */
-body.home .single-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-  box-sizing: border-box;
-  z-index: 1;           /* Lower layer */
-}
+  /* Home page image */
+  body.home .single-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 16px;
+    box-sizing: border-box;
+  }
 
-/* Image itself */
-body.home .single-image img {
-  width: 60vw;
-  max-width: 90vw;
-  height: auto;
-  object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.05); /* optional soft shadow */
-  z-index: 1;           /* Lower layer */
-}
+  body.home .single-image img {
+    width: 80vw;
+    max-width: 90vw;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
 
- /* ========== CV PAGE ========== */
+  /* =======================================
+     CV PAGE
+     ======================================= */
   body.cv .left {
     position: fixed;
     top: 0;
@@ -438,6 +445,7 @@ body.home .single-image img {
     transition: transform 0.4s ease;
     transform: translateX(0);
     padding: 1.5rem;
+    overflow: hidden;
   }
 
   body.cv .left.hide-on-scroll {
@@ -453,7 +461,7 @@ body.home .single-image img {
     background: white;
     overflow-y: auto;
     z-index: 1;
-    padding-top: 24px;
+    padding: 24px 16px;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -464,97 +472,74 @@ body.home .single-image img {
     overflow: hidden;
     pointer-events: none;
   }
-    
-  /* ========== FONT SCALING FOR LEFT PANEL ========== */
+
+  /* =======================================
+     TYPOGRAPHY & SPACING SCALE
+     ======================================= */
+  .titles h1 {
+    font-size: clamp(14px, 4vw, 18px);
+    margin-bottom: 0.2rem;
+  }
 
   .titles h2 {
-  margin-bottom: 0.5rem; /* tighter spacing between title and menu */
-}
-  
-  .menu a {
-  display: block;
-  font-size: clamp(10px, 2vw, 13px); /* smaller font on mobile */
-  line-height: 1.2;
-  margin-top: 1rem;  /* Reduce top spacing */
-  margin-bottom: 0.5rem;
-}
-
-.intro {
-  margin-top: 1rem;
+    font-size: clamp(10px, 3vw, 13px);
+    margin-bottom: 1rem;
   }
-  
+
+  .menu a {
+    display: block;
+    font-size: clamp(11px, 3vw, 14px);
+    line-height: 1.3;
+    margin: 0.4rem 0;
+  }
+
   .intro,
   .contact,
   .cv-summary,
   .cv-contacts a,
   .cv-contacts ul {
-    font-size: clamp(10px, 2vw, 13px);
+    font-size: clamp(11px, 2.5vw, 14px);
+    line-height: 1.4;
   }
 
-  .cv-header {
-    flex-direction: column;
-    gap: 1rem;
+  .intro {
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
   }
 
-  .cv-header p {
-    font-size: clamp(9px, 1.8vw, 12px);
+  .contact {
+    margin-top: auto;
   }
 
-  .id-photo {
-    width: 90px;
-    height: 90px;
+  /* =======================================
+     CV CONTENT ELEMENTS
+     ======================================= */
+  .cv-id-photo {
+    width: 100px;
+    height: 100px;
+  }
+
+  .cv-role {
+    font-size: clamp(13px, 3vw, 16px);
+  }
+
+  .cv-bullets,
+  .cv-meta,
+  .cv-contacts ul,
+  .cv-overline {
+    font-size: clamp(11px, 2.5vw, 13px);
   }
 
   .cv-logo {
     width: 64px;
     min-height: 32px;
   }
+
+  .cv-cards {
+    gap: 8px;
+  }
+
+  .cv-card {
+    padding: 8px 0;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
