@@ -433,16 +433,21 @@ body.home .single-image img {
   body.home .contact {
     font-size: clamp(11px, 2.8vw, 13px);
     line-height: 1.4;
-    margin-top: auto;
+    margin-top: 1.5rem; /* small spacing after menu */
   }
 
   /* Page vertical spacing tweak */
    body.home .center-content {
-    margin-top: -1.2rem;   /* move intro+menu+contact slightly up */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* stack from top */
+    margin-top: -1.2rem;         /* lift intro+menu+contact upward */
+    height: auto;                /* allow natural height */
   }
 
   /* Optional: if it feels too tight, you can adjust this value between -1rem and -2rem */
 }
+
 
 
 
