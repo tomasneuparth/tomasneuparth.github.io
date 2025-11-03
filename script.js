@@ -30,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // we force the menu to be on top and visible
   leftPane.classList.remove("hide-on-scroll");
   leftPane.classList.add("show-on-load");
-  leftPane.style.transform = "translateX(0)";
   leftPane.style.zIndex = "2000";
 
   // right panel always behind on mobile
@@ -49,29 +48,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // helper functions
   const showLeft = () => {
-    leftPane.classList.remove("hide-on-scroll");
-    leftPane.classList.add("show-on-load");
-    leftPane.style.transform = "translateX(0)";
-    isLeftVisible = true;
+   leftPane.classList.remove("hide-on-scroll");
+   isLeftVisible = true;
 
-    if (body.classList.contains("cv")) {
-      rightPane.classList.add("lock-scroll");
-      rightPane.scrollTop = 0;
-    }
-  };
+   if (body.classList.contains("cv")) {
+    rightPane.classList.add("lock-scroll");
+    rightPane.scrollTop = 0;
+   }
+ };
 
   const hideLeft = () => {
-    leftPane.classList.remove("show-on-load");
-    leftPane.classList.add("hide-on-scroll");
-    // when we hide, we slide it left
-    leftPane.style.transform = "translateX(-100%)";
-    isLeftVisible = false;
+  leftPane.classList.add("hide-on-scroll");
+  isLeftVisible = false;
 
-    if (body.classList.contains("cv")) {
-      rightPane.classList.remove("lock-scroll");
-    }
-  };
-
+  if (body.classList.contains("cv")) {
+    rightPane.classList.remove("lock-scroll");
+  }
+};
+  
   // ===== TOUCH HANDLERS (for phones) =====
   window.addEventListener(
     "touchstart",
@@ -151,8 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("resize", () => {
     if (window.innerWidth > MOBILE_MAX) {
       leftPane.classList.remove("hide-on-scroll", "show-on-load");
-      leftPane.style.transform = "";
       rightPane.classList.remove("lock-scroll");
     }
   });
 });
+
