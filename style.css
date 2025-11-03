@@ -370,7 +370,9 @@ body.home .single-image img {
     overflow-x: hidden;
   }
 
-  /* ========== HOME PAGE (Mobile) ========== */
+/* =======================================
+   HOME PAGE (Mobile)
+   ======================================= */
 body.home .left {
   position: fixed;
   top: 0;
@@ -378,56 +380,61 @@ body.home .left {
   width: 100%;
   height: 100vh;
   background: white;
-  z-index: 2000;              /* 👈 Bring to top */
+  z-index: 2000;             /* Always above image */
   transition: transform 0.4s ease;
-  transform: translateX(0);   /* 👈 Start visible */
   padding: 1.5rem;
   overflow: hidden;
 }
 
-  body.home .left.hide-on-scroll {
-    transform: translateX(-100%); /* 👈 Hide by sliding left */
-  }
+/* Hidden state (slide out) */
+body.home .left.hide-on-scroll {
+  transform: translateX(-100%);
+}
 
-  body.home .right {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;              /* 👈 Behind the left panel */
-  }
+/* Force visible state */
+body.home .left.show-on-load {
+  transform: translateX(0);
+}
 
-  body.home .right.lock-scroll {
-    overflow: hidden;
-    pointer-events: none;
-  }
+body.home .right {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Always behind left */
+}
 
-  /* Home page image */
-  body.home .single-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    height: 100%;
-    object-fit: contain;
-    border-radius: 16px;
-    box-sizing: border-box;
-  }
+body.home .right.lock-scroll {
+  overflow: hidden;
+  pointer-events: none;
+}
 
-  body.home .single-image img {
-    width: 80vw;
-    max-width: 90vw;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
+/* Home page image container */
+body.home .single-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+body.home .single-image img {
+  width: 80vw;
+  max-width: 90vw;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
 
   /* =======================================
      CV PAGE
@@ -554,4 +561,5 @@ body.home .left {
     z-index: 1;                            /* Behind the left panel */
   }
 }
+
 
