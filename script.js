@@ -48,3 +48,65 @@ document.addEventListener("DOMContentLoaded", () => {
     { passive: true }
   );
 });
+
+// =======================================
+// MOBILE CV PAGE BEHAVIOR
+// =======================================
+document.addEventListener("DOMContentLoaded", () => {
+  const left = document.querySelector(".left");
+  const right = document.querySelector(".right");
+  const body = document.body;
+
+  if (!left || !right || !body.classList.contains("cv") || window.innerWidth > 880) return;
+
+  let lastY = 0;
+  let startY = 0;
+  let isLeftVisible = true;
+  const TH = 25;
+
+  const showLeft = () => {
+    left.classList.remove("hide-on-scroll");
+    isLeftVisible = true;
+    right.classList.remove("scrollable"); // lock scroll
+    right.scrollTop = 0;
+  };
+
+  const hideLeft = () => {
+    left.classList.add("hide-on-scroll");
+    isLeftVisible = false;
+    right.classList.add("scrollable"); // unlock scroll
+  };
+
+  // --- Touch gestures ---
+  window.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
+  window.addEventListener("touchmove", e => {
+    const delta = e.touches[0].clientY - startY;
+    const atTop = right.scrollTop <= 0;
+
+    // Swipe up → hide left (unlock scroll)
+    if (delta < -TH && isLeftVisible) hideLeft();
+
+    // Swipe down (from top) → show left (lock scroll)
+    if (delta > TH && !isLeftVisible && atTop) showLeft();
+  }, { passive: true });
+
+  // --- Scroll logic ---
+  right.addEventListener("scroll", () => {
+    const y = right.scrollTop;
+
+    // if left is visible, block right scroll
+    if (isLeftVisible) {
+      right.scrollTop = 0;
+      return;
+    }
+
+    // When reaching top and scrolling up → show left again
+    if (y <= 0) {
+      showLeft();
+    }
+
+    lastY = y;
+  }, { passive: true });
+});
+
+
