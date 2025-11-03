@@ -463,7 +463,8 @@ body.home .single-image img {
   body.cv .right.lock-scroll {
     overflow: hidden;
     pointer-events: none;
-  
+  }
+    
   /* ========== FONT SCALING FOR LEFT PANEL ========== */
 
   .titles h2 {
@@ -509,6 +510,7 @@ body.home .single-image img {
     min-height: 32px;
   }
 }
+
 
 
 
