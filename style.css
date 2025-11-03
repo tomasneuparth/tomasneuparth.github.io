@@ -410,6 +410,24 @@ body.home .right {
   z-index: 1000; /* Always behind left */
 }
 
+  /* === FORCE LEFT ABOVE RIGHT (works regardless of DOM order) === */
+@media (max-width: 880px) {
+  body.home {
+    position: relative;
+    isolation: isolate; /* creates new stacking context for children */
+  }
+
+  body.home .right {
+    position: fixed;
+    z-index: 0 !important;   /* truly behind */
+  }
+
+  body.home .left {
+    position: fixed;
+    z-index: 1 !important;   /* truly above */
+  }
+}
+
 body.home .right.lock-scroll {
   overflow: hidden;
   pointer-events: none;
@@ -561,5 +579,6 @@ body.home .single-image img {
     z-index: 1;                            /* Behind the left panel */
   }
 }
+
 
 
