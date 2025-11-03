@@ -397,7 +397,6 @@ body.home .left.show-on-load {
 }
 
 body.home .right {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -418,7 +417,6 @@ body.home .right {
   }
 
   body.home .right {
-    position: fixed;
     z-index: 0 !important;   /* truly behind */
   }
 
@@ -577,6 +575,34 @@ body.home .single-image img {
 
   body.home .right {
     z-index: 1;                            /* Behind the left panel */
+  }
+}
+
+/* =======================================
+   FINAL FIX: LEFT PANEL ABOVE RIGHT
+   ======================================= */
+@media (max-width: 880px) {
+  body.home .left,
+  body.cv .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: white;
+    z-index: 100;
+    transform: none !important; /* remove transform stacking context */
+  }
+
+  body.home .right,
+  body.cv .right {
+    position: relative !important; /* remove fixed stacking context */
+    z-index: 0 !important;
+  }
+
+  .layout {
+    position: relative;
+    isolation: isolate; /* force normal stacking order */
   }
 }
 
