@@ -370,25 +370,23 @@ body.home .single-image img {
     overflow-x: hidden;
   }
 
-  /* =======================================
-     HOME PAGE
-     ======================================= */
-  body.home .left {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: white;
-    z-index: 1000;
-    transition: transform 0.4s ease;
-    transform: translateX(0);
-    padding: 1.5rem;
-    overflow: hidden;
-  }
+  /* ========== HOME PAGE (Mobile) ========== */
+body.home .left {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: white;
+  z-index: 2000;              /* 👈 Bring to top */
+  transition: transform 0.4s ease;
+  transform: translateX(0);   /* 👈 Start visible */
+  padding: 1.5rem;
+  overflow: hidden;
+}
 
   body.home .left.hide-on-scroll {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* 👈 Hide by sliding left */
   }
 
   body.home .right {
@@ -402,7 +400,7 @@ body.home .single-image img {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1;
+    z-index: 1000;              /* 👈 Behind the left panel */
   }
 
   body.home .right.lock-scroll {
@@ -543,3 +541,4 @@ body.home .single-image img {
     padding: 8px 0;
   }
 }
+
