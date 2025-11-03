@@ -20,6 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!leftPane || !rightPane) return;
   if (window.innerWidth > 880) return; // Desktop unaffected
 
+  // --- Force menu visible on page load ---
+  leftPane.classList.remove("hide-on-scroll");
+  if (body.classList.contains("home")) {
+    rightPane.classList.add("lock-scroll"); // keep image static
+  }
+
   let lastScrollTop = 0;
   let isLeftVisible = true;
   let touchStartY = 0;
@@ -44,55 +50,76 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   // Track scroll direction properly on touch
-  window.addEventListener("touchstart", e => {
-    touchStartY = e.touches[0].clientY;
-  }, { passive: true });
+  window.addEventListener(
+    "touchstart",
+    e => {
+      touchStartY = e.touches[0].clientY;
+    },
+    { passive: true }
+  );
 
-  window.addEventListener("touchmove", e => {
-    const touchY = e.touches[0].clientY;
-    const delta = touchY - touchStartY;
+  window.addEventListener(
+    "touchmove",
+    e => {
+      const touchY = e.touches[0].clientY;
+      const delta = touchY - touchStartY;
 
-    // HOME PAGE LOGIC
-    if (body.classList.contains("home")) {
-      if (delta < -threshold && isLeftVisible) {
-        hideLeft();
-      } else if (delta > threshold && !isLeftVisible) {
-        showLeft();
+      // HOME PAGE LOGIC (menu visible by default)
+      if (body.classList.contains("home")) {
+        // Swiping UP hides menu, swiping DOWN shows it again
+        if (delta < -threshold && isLeftVisible) {
+          hideLeft();
+        } else if (delta > threshold && !isLeftVisible) {
+          showLeft();
+        }
       }
-    }
 
-    // CV PAGE LOGIC
-    if (body.classList.contains("cv")) {
-      const atTop = rightPane.scrollTop <= 0;
-
-      if (delta < -threshold && isLeftVisible) {
-        hideLeft(); // swipe up hides left, unlock right scroll
-      } 
-      else if (delta > threshold && !isLeftVisible && atTop) {
-        showLeft(); // swipe down from top reveals left
+      // CV PAGE LOGIC
+      if (body.classList.contains("cv")) {
+        const atTop = rightPane.scrollTop <= 0;
+        if (delta < -threshold && isLeftVisible) {
+          hideLeft(); // swipe up hides left, unlock right scroll
+        } else if (delta > threshold && !isLeftVisible && atTop) {
+          showLeft(); // swipe down from top reveals left
+        }
       }
-    }
-  }, { passive: true });
+    },
+    { passive: true }
+  );
 
   // Also handle standard scroll (mousewheel / inertia)
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener(
+    "scroll",
+    () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
 
-    // HOME
-    if (body.classList.contains("home")) {
-      if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
-      else if (scrollTop < lastScrollTop - threshold && !isLeftVisible) showLeft();
-      rightPane.classList.add("lock-scroll"); // prevent image scroll
+      // HOME
+      if (body.classList.contains("home")) {
+        if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
+        else if (scrollTop < lastScrollTop - threshold && !isLeftVisible)
+          showLeft();
+        rightPane.classList.add("lock-scroll"); // prevent image scroll
+      }
+
+      // CV
+      else if (body.classList.contains("cv")) {
+        const atTop = rightPane.scrollTop <= 0;
+        if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
+        else if (scrollTop < lastScrollTop - threshold && !isLeftVisible && atTop)
+          showLeft();
+      }
+
+      lastScrollTop = Math.max(scrollTop, 0);
+    },
+    { passive: true }
+  );
+
+  // Reset everything when resizing to desktop
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 880) {
+      leftPane.classList.remove("hide-on-scroll");
+      rightPane.classList.remove("lock-scroll");
     }
-
-    // CV
-    else if (body.classList.contains("cv")) {
-      const atTop = rightPane.scrollTop <= 0;
-      if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
-      else if (scrollTop < lastScrollTop - threshold && !isLeftVisible && atTop) showLeft();
-    }
-
-    lastScrollTop = Math.max(scrollTop, 0);
-  }, { passive: true });
+  });
 });
-
