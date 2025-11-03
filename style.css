@@ -472,52 +472,6 @@ body.home .single-image img {
 }
 
 /* =======================================
-   HOME PAGE IMAGE POLISH (mobile only)
-   ======================================= */
-@media (max-width: 880px) {
-  /* Keep image behind the left panel */
-  body.home .layout {
-    position: relative;
-    isolation: isolate;
-  }
-
-  body.home .right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-  }
-
-  body.home .single-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-  }
-
-  body.home .single-image img {
-    width: 85vw;
-    height: auto;
-    max-width: 90vw;
-    object-fit: contain;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
-
-  /* Ensure left panel sits above image */
-  body.home .left {
-    z-index: 10;
-  }
-}
-
-/* =======================================
    FINAL HOME PAGE IMAGE FIX (mobile)
    ======================================= */
 @media (max-width: 880px) {
@@ -556,3 +510,4 @@ body.home .single-image img {
     z-index: 10;
   }
 }
+
