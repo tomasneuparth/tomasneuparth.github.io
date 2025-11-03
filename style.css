@@ -542,3 +542,16 @@ body.home .left {
   }
 }
 
+/* =======================================
+   FORCE LEFT PANEL VISIBLE BY DEFAULT
+   ======================================= */
+@media (max-width: 880px) {
+  body.home .left {
+    transform: translateX(0) !important;   /* Make sure it's visible */
+  }
+
+  body.home .right {
+    z-index: 1;                            /* Behind the left panel */
+  }
+}
+
