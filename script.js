@@ -20,20 +20,28 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!leftPane || !rightPane) return;
   if (window.innerWidth > 880) return; // Desktop unaffected
 
-  // --- Force menu visible on page load ---
+  // === INITIAL STATE FIX ===
   leftPane.classList.remove("hide-on-scroll");
+  leftPane.classList.remove("show-on-load"); // reset in case of reload
+  rightPane.classList.remove("lock-scroll");
+
+  // For HOME page: ensure menu visible & above image
   if (body.classList.contains("home")) {
-    rightPane.classList.add("lock-scroll"); // keep image static
+    leftPane.classList.add("show-on-load");  // visible on load
+    rightPane.classList.add("lock-scroll");  // image locked
+    leftPane.style.zIndex = "2000";
+    rightPane.style.zIndex = "1000";
   }
 
   let lastScrollTop = 0;
-  let isLeftVisible = true;
+  let isLeftVisible = true; // start with menu visible
   let touchStartY = 0;
   const threshold = 20; // smooth out touch scrolling
 
   // helper functions
   const showLeft = () => {
     leftPane.classList.remove("hide-on-scroll");
+    leftPane.classList.add("show-on-load");
     if (body.classList.contains("cv")) {
       rightPane.classList.add("lock-scroll");
       rightPane.scrollTop = 0; // reset scroll when panel reopens
@@ -42,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const hideLeft = () => {
+    leftPane.classList.remove("show-on-load");
     leftPane.classList.add("hide-on-scroll");
     if (body.classList.contains("cv")) {
       rightPane.classList.remove("lock-scroll");
@@ -99,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (scrollTop > lastScrollTop + threshold && isLeftVisible) hideLeft();
         else if (scrollTop < lastScrollTop - threshold && !isLeftVisible)
           showLeft();
-        rightPane.classList.add("lock-scroll"); // prevent image scroll
+        rightPane.classList.add("lock-scroll"); // keep image static
       }
 
       // CV
@@ -118,8 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Reset everything when resizing to desktop
   window.addEventListener("resize", () => {
     if (window.innerWidth > 880) {
-      leftPane.classList.remove("hide-on-scroll");
+      leftPane.classList.remove("hide-on-scroll", "show-on-load");
       rightPane.classList.remove("lock-scroll");
     }
   });
 });
+
+
