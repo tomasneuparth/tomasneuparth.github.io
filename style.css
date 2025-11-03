@@ -433,7 +433,7 @@ body.home .single-image img {
   body.home .contact {
     font-size: clamp(11px, 2.8vw, 13px);
     line-height: 1.4;
-    margin-top: 1.5rem; /* small spacing after menu */
+    margin-top: 1.2rem; /* small spacing after menu */
   }
 
   /* Page vertical spacing tweak */
@@ -447,6 +447,7 @@ body.home .single-image img {
 
   /* Optional: if it feels too tight, you can adjust this value between -1rem and -2rem */
 }
+
 
 
 
