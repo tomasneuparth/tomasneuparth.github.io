@@ -356,126 +356,11 @@ body.home .single-image img {
 
 
 /* =======================================
-   MOBILE LAYOUT (single working block)
+   MOBILE HOME PAGE (FINAL)
    ======================================= */
 @media (max-width: 880px) {
 
-  html, body { overflow-x: hidden; }
-
-  /* ---- LEFT PANEL ---- */
-  .left {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: #fff;
-    z-index: 10;
-    transition: left 0.4s ease;
-    padding: 1.5rem;
-    overflow: hidden;
-  }
-
-  .left.hide-on-scroll { left: -100%; }
-
-  /* ---- RIGHT PANEL ---- */
-  .right {
-    position: relative;   /* no longer fixed */
-    width: 100%;
-    min-height: 100vh;
-    overflow-y: auto;
-    z-index: 0;
-  }
-
-  /* ---- HOME IMAGE ---- */
-  body.home .single-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 24px;
-  }
-
-  body.home .single-image img {
-    width: 80vw;
-    max-width: 90vw;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.05);
-  }
-
-  /* ---- TYPOGRAPHY & SPACING ---- */
-  .titles h1 {
-    font-size: clamp(14px, 4vw, 18px);
-    margin-bottom: 0.2rem;
-  }
-
-  .titles h2 {
-    font-size: clamp(10px, 3vw, 13px);
-    margin-bottom: 1rem;
-  }
-
-  .menu a {
-    display: block;
-    font-size: clamp(11px, 3vw, 14px);
-    line-height: 1.3;
-    margin: 0.4rem 0;
-  }
-
-  .intro,
-  .contact,
-  .cv-summary,
-  .cv-contacts a,
-  .cv-contacts ul {
-    font-size: clamp(11px, 2.5vw, 14px);
-    line-height: 1.4;
-  }
-
-  .intro {
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .contact {
-    margin-top: auto;
-  }
-
-  /* ---- CV CONTENT ELEMENTS ---- */
-  .cv-id-photo {
-    width: 100px;
-    height: 100px;
-  }
-
-  .cv-role {
-    font-size: clamp(13px, 3vw, 16px);
-  }
-
-  .cv-bullets,
-  .cv-meta,
-  .cv-contacts ul,
-  .cv-overline {
-    font-size: clamp(11px, 2.5vw, 13px);
-  }
-
-  .cv-logo {
-    width: 64px;
-    min-height: 32px;
-  }
-
-  .cv-cards {
-    gap: 8px;
-  }
-
-  .cv-card {
-    padding: 8px 0;
-  }
-}
-
-/* =======================================
-   FINAL MOBILE HOME PAGE (corrected)
-   ======================================= */
-@media (max-width: 880px) {
-  /* Background image (right panel) */
+  /* ---- FIXED BACKGROUND IMAGE ---- */
   body.home .right {
     position: fixed;
     top: 0;
@@ -486,11 +371,11 @@ body.home .single-image img {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    z-index: 0;                 /* stays behind the menu */
+    z-index: 0; /* behind the menu */
   }
 
   body.home .single-image img {
-    width: 75vw;                /* smaller image */
+    width: 70vw;               /* smaller image */
     height: auto;
     max-width: 420px;
     object-fit: contain;
@@ -498,25 +383,27 @@ body.home .single-image img {
     box-shadow: 0 0 20px rgba(0,0,0,0.05);
   }
 
-  /* Left panel is the “main” page */
+  /* ---- LEFT PANEL ---- */
   body.home .left {
     position: fixed;
     top: 0;
-    left: 0;                    /* fully visible by default */
+    left: 0;
     width: 100%;
     height: 100vh;
     background: #fff;
-    z-index: 10;
-    transition: transform 0.4s ease;
-    transform: translateX(0);
+    z-index: 10;               /* above image */
+    transition: transform 0.45s ease;
+    transform: translateX(0);  /* visible by default */
     padding: 1.5rem;
     overflow: hidden;
   }
 
-  /* When hidden (slide left off screen) */
   body.home .left.hide-on-scroll {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* slide completely off screen */
   }
 }
+
+}
+
 
 
