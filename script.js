@@ -1,16 +1,4 @@
 // =======================================
-// CAROUSEL (unchanged)
-const slides = document.querySelectorAll('.carousel img');
-let idx = 0;
-if (slides.length) {
-  setInterval(() => {
-    slides[idx].classList.remove('active');
-    idx = (idx + 1) % slides.length;
-    slides[idx].classList.add('active');
-  }, 4000);
-}
-
-// =======================================
 // MOBILE PANEL SCROLL BEHAVIOR
 document.addEventListener("DOMContentLoaded", () => {
   const leftPane = document.querySelector(".left");
@@ -132,5 +120,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
 
