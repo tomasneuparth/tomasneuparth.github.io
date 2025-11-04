@@ -213,7 +213,7 @@ body.home .single-image img {
 }
 
 /* ===== Right-side vertical CV (scoped) ===== */
-.body.cv .cv-content {
+.cv-content {
   font: inherit;
   color: inherit;
   height: 100%;
@@ -221,9 +221,12 @@ body.home .single-image img {
   padding: 24px clamp(16px, 2.5vw, 40px);
   max-width: 880px;
   margin: 0 auto;
-  margin-bottom: 60px;         /* ✅ add bottom space */
   line-height: 1.5;
 }
+
+.body.cv .cv-content {
+  margin-bottom: 60px;         /* ✅ add bottom space */
+ } 
 
 /* ID photo + headline */
 .cv-id {
@@ -447,6 +450,7 @@ body.home .single-image img {
   }
 
 }
+
 
 
 
