@@ -444,7 +444,6 @@ body.home .single-image img {
   }
 
   /* Optional: if it feels too tight, you can adjust this value between -1rem and -2rem */
-}
 
 /* =======================================
    MOBILE CV PAGE (FINAL)
@@ -485,5 +484,6 @@ body.home .single-image img {
     overflow-y: auto; /* enabled once left is hidden */
   }
 }
+
 
 
