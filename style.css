@@ -220,6 +220,7 @@ body.home .single-image img {
   padding: 24px clamp(16px, 2.5vw, 40px);
   max-width: 880px;
   margin: 0 auto;
+  margin-bottom: 60px;         /* ✅ add bottom space */
   line-height: 1.5;
 }
 
@@ -445,6 +446,7 @@ body.home .single-image img {
   }
 
 }
+
 
 
 
