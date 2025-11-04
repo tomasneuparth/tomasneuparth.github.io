@@ -406,8 +406,6 @@ body.home .single-image img {
 /* =======================================
    MOBILE HOME PAGE TEXT SCALE
    ======================================= */
-@media (max-width: 880px) {
-  /* Keep logo and titles as-is */
 
   /* Make intro text smaller */
   body.home .intro {
@@ -487,4 +485,5 @@ body.home .single-image img {
     overflow-y: auto; /* enabled once left is hidden */
   }
 }
+
 
