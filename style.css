@@ -401,6 +401,26 @@ body.home .single-image img {
   body.home .left.hide-on-scroll {
     transform: translateX(-100%); /* slide completely off screen */
   }
+
+  /* =======================================
+   MOBILE HOME PAGE VERTICAL SPACING FIX
+   ======================================= */
+  
+  /* Make the whole left panel stack content naturally */
+  body.home .center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* stack from top */
+    margin-top: -1.2rem;         /* lift intro+menu+contact upward */
+    height: auto;                /* allow natural height */
+  }
+
+  /* Remove the auto bottom push on contact so it moves with others */
+  body.home .contact {
+    margin-top: 1.2rem; /* small spacing after menu */
+  }
+  
 }
+
 
 
