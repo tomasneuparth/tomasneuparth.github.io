@@ -135,6 +135,7 @@ body.home .single-image img {
   box-shadow: 0 0 20px rgba(0,0,0,0.05); /* optional soft shadow */
 }
 
+/*
 .carousel img {
   position:absolute;
   top:50%;
@@ -147,6 +148,7 @@ body.home .single-image img {
 }
 
 .carousel img.active { opacity: 1; }
+*/
 
 .cv-image {
   width: 150%;
@@ -210,7 +212,7 @@ body.home .single-image img {
 }
 
 /* ===== Right-side vertical CV (scoped) ===== */
-.cv-content {
+.body.cv .cv-content {
   font: inherit;
   color: inherit;
   height: 100%;
@@ -443,6 +445,7 @@ body.home .single-image img {
   }
 
 }
+
 
 
 
