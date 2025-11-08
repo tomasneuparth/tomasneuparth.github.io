@@ -453,7 +453,7 @@ body.home .single-image img {
    MOBILE CV PAGE (FINAL BEHAVIOR)
    ======================================= */
 
-  /* Left panel – visible by default, slides away */
+  /* ---- LEFT PANEL ---- */
   body.cv .left {
     position: fixed;
     top: 0;
@@ -468,7 +468,6 @@ body.home .single-image img {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
   }
 
   body.cv .left.hide-on-scroll {
@@ -533,6 +532,7 @@ body.home .single-image img {
 
 
 }
+
 
 
 
