@@ -466,8 +466,6 @@ body.home .single-image img {
     transform: translateX(0);
     padding: 1.5rem;
     overflow: hidden;
-    display: flex;
-    flex-direction: column;
   }
 
   body.cv .left.hide-on-scroll {
@@ -532,6 +530,7 @@ body.home .single-image img {
 
 
 }
+
 
 
 
