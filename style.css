@@ -453,8 +453,7 @@ body.home .single-image img {
    MOBILE CV PAGE (FINAL BEHAVIOR)
    ======================================= */
 
-  /* ---- LEFT PANEL ---- */
-  body.cv .left {
+ body.cv .left {
     position: fixed;
     top: 0;
     left: 0;
@@ -464,29 +463,26 @@ body.home .single-image img {
     z-index: 10;
     transition: transform 0.45s ease;
     transform: translateX(0);
-    padding: 1.5rem;
+    padding: 1.5rem;      /* smaller padding just for mobile fit */
     overflow: hidden;
   }
 
-  body.cv .left.hide-on-scroll {
-    transform: translateX(-100%);
-  }
+  body.cv .left.hide-on-scroll { transform: translateX(-100%); }
 
-  /* Right panel – behaves like a background but scrolls normally */
   body.cv .right {
-    position: absolute;     /* 👈 now scrolls properly on mobile */
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     min-height: 100vh;
-    overflow-y: hidden;     /* locked until left hides */
+    overflow-y: hidden;
     background: #fff;
     z-index: 0;
   }
 
-  body.cv .right.scrollable {
-    overflow-y: auto;       /* unlock scroll once left slides out */
-  }
+  body.cv .right.scrollable { overflow-y: auto; }
+
+  body.cv .left { padding-top: 1.2rem; } /* optional lift so layout matches home’s vertical rhythm */
 
   /* =======================================
    MOBILE CV PAGE TEXT SCALE
@@ -530,6 +526,7 @@ body.home .single-image img {
 
 
 }
+
 
 
 
