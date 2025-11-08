@@ -475,14 +475,14 @@ body.home .single-image img {
     transform: translateX(-100%);
   }
 
-  /* Right panel – scrollable only after left is hidden */
+  /* Right panel – behaves like a background but scrolls normally */
   body.cv .right {
-    position: fixed;
+    position: absolute;     /* 👈 now scrolls properly on mobile */
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
-    overflow-y: hidden;     /* locked initially */
+    min-height: 100vh;
+    overflow-y: hidden;     /* locked until left hides */
     background: #fff;
     z-index: 0;
   }
@@ -491,15 +491,8 @@ body.home .single-image img {
     overflow-y: auto;       /* unlock scroll once left slides out */
   }
 
-  /* Keep text sizing comfortable */
-  body.cv .cv-content {
-    padding: 24px 1.5rem 60px;
-    font-size: clamp(12px, 3vw, 15px);
-    line-height: 1.5;
-  }
-
-   /* =======================================
-   MOBILE HOME PAGE TEXT SCALE
+  /* =======================================
+   MOBILE CV PAGE TEXT SCALE
    ======================================= */
 
   /* Make intro text smaller */
@@ -538,14 +531,9 @@ body.home .single-image img {
     height: auto;                /* allow natural height */
   }
 
-   body.cv .intro,
-   body.cv .menu,
-   body.cv .contact {
-    margin-top: 0.5rem;
-    padding-top: 1.2rem; /* slightly lifts everything */
-  }
 
 }
+
 
 
 
