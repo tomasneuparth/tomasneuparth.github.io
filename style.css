@@ -466,6 +466,9 @@ body.home .single-image img {
     transform: translateX(0);
     padding: 1.5rem;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   body.cv .left.hide-on-scroll {
@@ -535,7 +538,14 @@ body.home .single-image img {
     height: auto;                /* allow natural height */
   }
 
+   body.cv .intro,
+   body.cv .menu,
+   body.cv .contact {
+    margin-top: 0.5rem;
+  }
+
 }
+
 
 
 
