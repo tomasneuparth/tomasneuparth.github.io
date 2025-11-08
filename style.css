@@ -483,8 +483,7 @@ body.home .single-image img {
   body.cv .right.scrollable { overflow-y: auto; }
 
   body.cv .left { 
-    padding-bottom: 1.4rem; 
-    padding-top: 1rem; 
+    padding-bottom: 1.4rem;  
   }
 
   /* =======================================
@@ -529,6 +528,7 @@ body.home .single-image img {
 
 
 }
+
 
 
 
