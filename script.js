@@ -107,6 +107,47 @@ document.addEventListener("DOMContentLoaded", () => {
 
     lastY = y;
   }, { passive: true });
-});
+});  // <-- this ends your current home-page script
 
+// =======================================
+// MOBILE CV PAGE BEHAVIOR
+// =======================================
+document.addEventListener("DOMContentLoaded", () => {
+  const left = document.querySelector(".left");
+  const right = document.querySelector(".right");
+  const body = document.body;
+
+  if (!left || !right || !body.classList.contains("cv") || window.innerWidth > 880) return;
+
+  let startY = 0;
+  let isLeftVisible = true;
+  const TH = 30; // scroll/swipe threshold
+
+  const showLeft = () => {
+    left.classList.remove("hide-on-scroll");
+    isLeftVisible = true;
+    right.classList.remove("scrollable");
+    right.scrollTop = 0;
+  };
+
+  const hideLeft = () => {
+    left.classList.add("hide-on-scroll");
+    isLeftVisible = false;
+    setTimeout(() => right.classList.add("scrollable"), 400);
+  };
+
+  window.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
+  window.addEventListener("touchmove", e => {
+    const delta = e.touches[0].clientY - startY;
+    const atTop = right.scrollTop <= 0;
+
+    if (delta < -TH && isLeftVisible) hideLeft();
+    if (delta > TH && !isLeftVisible && atTop) showLeft();
+  }, { passive: true });
+
+  right.addEventListener("scroll", () => {
+    const atTop = right.scrollTop <= 0;
+    if (atTop && !isLeftVisible) showLeft();
+  }, { passive: true });
+});
 
