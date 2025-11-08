@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =======================================
-// MOBILE CV PAGE BEHAVIOR (FINAL FIX)
+// MOBILE CV PAGE BEHAVIOR (FINAL WORKING)
 // =======================================
 document.addEventListener("DOMContentLoaded", () => {
   const left = document.querySelector(".left");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let startY = 0;
   let isLeftVisible = true;
-  const TH = 30;
+  const TH = 30; // gesture threshold in px
 
   const showLeft = () => {
     left.classList.remove("hide-on-scroll");
@@ -73,29 +73,31 @@ document.addEventListener("DOMContentLoaded", () => {
   const hideLeft = () => {
     left.classList.add("hide-on-scroll");
     isLeftVisible = false;
-    // wait for CSS transition, then unlock scroll
+    // wait until the slide animation finishes
     setTimeout(() => right.classList.add("scrollable"), 450);
   };
 
-  // --- Touch gestures captured on LEFT (because it sits on top) ---
+  // --- Touch gestures (now work because .left allows pan-y) ---
   left.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
   left.addEventListener("touchmove", e => {
     const delta = e.touches[0].clientY - startY;
-    if (delta < -TH && isLeftVisible) hideLeft();  // swipe up → hide menu
+    if (delta < -TH && isLeftVisible) hideLeft(); // swipe up hides menu
   }, { passive: true });
 
-  // --- Touch gestures captured on RIGHT once scroll unlocked ---
+  // --- Scroll gestures on right (when visible) ---
   right.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
   right.addEventListener("touchmove", e => {
     const delta = e.touches[0].clientY - startY;
     const atTop = right.scrollTop <= 0;
-    if (delta > TH && !isLeftVisible && atTop) showLeft(); // swipe down from top → show menu
+    if (delta > TH && !isLeftVisible && atTop) showLeft(); // swipe down at top shows menu
   }, { passive: true });
 
-  // --- Scroll behaviour ---
+  // --- Scroll fallback (if user scrolls instead of swipes) ---
   right.addEventListener("scroll", () => {
     const atTop = right.scrollTop <= 0;
     if (atTop && !isLeftVisible) showLeft();
   }, { passive: true });
 });
+
+
 
