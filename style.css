@@ -482,6 +482,8 @@ body.home .single-image img {
 
   body.cv .right.scrollable { overflow-y: auto; }
 
+  body.cv .left { padding-bottom: 1rem; }
+
   /* =======================================
    MOBILE CV PAGE TEXT SCALE
    ======================================= */
@@ -524,6 +526,7 @@ body.home .single-image img {
 
 
 }
+
 
 
 
