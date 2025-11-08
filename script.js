@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =======================================
-// MOBILE CV PAGE BEHAVIOR (FIXED VERSION)
+// MOBILE CV PAGE BEHAVIOR (FINAL FIX)
 // =======================================
 document.addEventListener("DOMContentLoaded", () => {
   const left = document.querySelector(".left");
@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let startY = 0;
   let isLeftVisible = true;
-  const TH = 30; // scroll/swipe threshold
+  const TH = 30;
 
   const showLeft = () => {
     left.classList.remove("hide-on-scroll");
@@ -73,24 +73,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const hideLeft = () => {
     left.classList.add("hide-on-scroll");
     isLeftVisible = false;
-    setTimeout(() => right.classList.add("scrollable"), 400);
+    // wait for CSS transition, then unlock scroll
+    setTimeout(() => right.classList.add("scrollable"), 450);
   };
 
-  // --- Touch gestures ---
+  // --- Touch gestures captured on LEFT (because it sits on top) ---
+  left.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
+  left.addEventListener("touchmove", e => {
+    const delta = e.touches[0].clientY - startY;
+    if (delta < -TH && isLeftVisible) hideLeft();  // swipe up → hide menu
+  }, { passive: true });
+
+  // --- Touch gestures captured on RIGHT once scroll unlocked ---
   right.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
   right.addEventListener("touchmove", e => {
     const delta = e.touches[0].clientY - startY;
     const atTop = right.scrollTop <= 0;
-
-    if (delta < -TH && isLeftVisible) hideLeft();          // swipe up → hide menu
     if (delta > TH && !isLeftVisible && atTop) showLeft(); // swipe down from top → show menu
   }, { passive: true });
 
   // --- Scroll behaviour ---
   right.addEventListener("scroll", () => {
     const atTop = right.scrollTop <= 0;
-    if (atTop && !isLeftVisible) showLeft(); // show menu when scrolled back to top
+    if (atTop && !isLeftVisible) showLeft();
   }, { passive: true });
 });
-
 
