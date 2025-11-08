@@ -524,9 +524,12 @@ body.home .single-image img {
     margin-top: -1.2rem;         /* lift intro+menu+contact upward */
     height: auto;                /* allow natural height */
   }
-
+  
+   body.cv .left { z-index: 9999 !important; }
+   body.cv .right { z-index: 1 !important; }
 
 }
+
 
 
 
