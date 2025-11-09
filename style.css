@@ -452,7 +452,6 @@ body.home .single-image img {
 /* =======================================
    MOBILE CV PAGE (VERTICAL STACK)
    ======================================= */
-@media (max-width: 880px) {
 
   /* Stack panels vertically */
   body.cv .layout {
@@ -525,8 +524,8 @@ body.home .single-image img {
     margin-top: -1.2rem;         /* lift intro+menu+contact upward */
     height: auto;                /* allow natural height */
   }
-  
 
+ }
 
 
 
