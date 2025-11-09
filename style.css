@@ -449,41 +449,42 @@ body.home .single-image img {
     height: auto;                /* allow natural height */
   }
 
-  /* =======================================
-   MOBILE CV PAGE (FINAL BEHAVIOR)
+/* =======================================
+   MOBILE CV PAGE (VERTICAL STACK)
    ======================================= */
+@media (max-width: 880px) {
 
- body.cv .left {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #fff;
-  z-index: 10;
-  transition: transform 0.45s ease;
-  transform: translateX(0);
-  padding: 1.5rem;
-  overflow-y: auto;    /* ✅ allow touch events to register */
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y; /* ✅ enables vertical swiping */
-}
-
-
-  body.cv .left.hide-on-scroll { transform: translateX(-100%); }
-
-  body.cv .right {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100vh;
-    overflow-y: hidden;
-    background: #fff;
-    z-index: 0;
+  /* Stack panels vertically */
+  body.cv .layout {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
   }
 
-  body.cv .right.scrollable { overflow-y: auto; }
+  /* Left panel at top */
+  body.cv .left {
+    position: relative; /* remove fixed positioning */
+    width: 100%;
+    height: auto;
+    padding: 1.5rem;
+    z-index: 1;
+    transform: none;
+    transition: none;
+    overflow: visible;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* optional visual divider */
+  }
+
+  /* Right panel below */
+  body.cv .right {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: visible;
+    background: #fff;
+    padding: 24px 16px;
+    box-sizing: border-box;
+  }
 
   /* =======================================
    MOBILE CV PAGE TEXT SCALE
@@ -525,10 +526,7 @@ body.home .single-image img {
     height: auto;                /* allow natural height */
   }
   
-   body.cv .left { z-index: 9999 !important; }
-   body.cv .right { z-index: 1 !important; }
 
-}
 
 
 
