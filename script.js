@@ -49,55 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// =======================================
-// MOBILE CV PAGE BEHAVIOR (FINAL WORKING)
-// =======================================
-document.addEventListener("DOMContentLoaded", () => {
-  const left = document.querySelector(".left");
-  const right = document.querySelector(".right");
-  const body = document.body;
-
-  if (!left || !right || !body.classList.contains("cv") || window.innerWidth > 880) return;
-
-  let startY = 0;
-  let isLeftVisible = true;
-  const TH = 30; // gesture threshold in px
-
-  const showLeft = () => {
-    left.classList.remove("hide-on-scroll");
-    isLeftVisible = true;
-    right.classList.remove("scrollable");
-    right.scrollTop = 0;
-  };
-
-  const hideLeft = () => {
-    left.classList.add("hide-on-scroll");
-    isLeftVisible = false;
-    // wait until the slide animation finishes
-    setTimeout(() => right.classList.add("scrollable"), 450);
-  };
-
-  // --- Touch gestures (now work because .left allows pan-y) ---
-  left.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
-  left.addEventListener("touchmove", e => {
-    const delta = e.touches[0].clientY - startY;
-    if (delta < -TH && isLeftVisible) hideLeft(); // swipe up hides menu
-  }, { passive: true });
-
-  // --- Scroll gestures on right (when visible) ---
-  right.addEventListener("touchstart", e => (startY = e.touches[0].clientY), { passive: true });
-  right.addEventListener("touchmove", e => {
-    const delta = e.touches[0].clientY - startY;
-    const atTop = right.scrollTop <= 0;
-    if (delta > TH && !isLeftVisible && atTop) showLeft(); // swipe down at top shows menu
-  }, { passive: true });
-
-  // --- Scroll fallback (if user scrolls instead of swipes) ---
-  right.addEventListener("scroll", () => {
-    const atTop = right.scrollTop <= 0;
-    if (atTop && !isLeftVisible) showLeft();
-  }, { passive: true });
-});
 
 
 
