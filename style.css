@@ -573,7 +573,28 @@ body.home .single-image img {
     text-align: left;
   }
 
+/* =======================================
+   MOBILE CV PAGE – LOCK HORIZONTAL SCROLL
+   ======================================= */
+  
+  /* Prevent any sideways scroll */
+  body.cv,
+  body.cv .layout,
+  body.cv .right,
+  body.cv .cv-content {
+    overflow-x: hidden;    /* ✅ no horizontal scroll */
+    max-width: 100vw;      /* ✅ limit width to viewport */
+  }
+
+  /* Make sure floated elements don't cause horizontal overflow */
+  body.cv .cv-id::after {
+    content: "";
+    display: block;
+    clear: both;           /* ✅ clears the floated image properly */
+  }
+
  }
+
 
 
 
