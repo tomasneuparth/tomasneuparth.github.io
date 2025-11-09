@@ -475,15 +475,18 @@ body.home .single-image img {
   }
 
   /* Right panel below */
-  body.cv .right {
-    position: relative;
-    width: 100%;
-    min-height: 100vh;
-    overflow-y: visible;
-    background: #fff;
-    padding: 24px 16px;
-    box-sizing: border-box;
-  }
+ body.cv .right {
+  position: relative;
+  top: 0;
+  left: 0;          /* ✅ reset leftover desktop offset */
+  width: 100%;      /* ✅ full width */
+  min-height: 100vh;
+  overflow-y: visible;
+  background: #fff;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  z-index: 1;       /* ensure it's above background but below any menu overlay */
+}
 
   /* =======================================
    MOBILE CV PAGE TEXT SCALE
@@ -526,6 +529,7 @@ body.home .single-image img {
   }
 
  }
+
 
 
 
