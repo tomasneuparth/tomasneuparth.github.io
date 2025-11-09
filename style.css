@@ -533,7 +533,48 @@ body.home .single-image img {
     height: auto;                /* allow natural height */
   }
 
+/* =======================================
+   MOBILE CV PAGE – WRAPPED NAME & SUMMARY
+   ======================================= */
+  
+/* Allow name to wrap around photo */
+  body.cv .cv-id {
+    display: block;                 /* normal flow for wrap */
+    margin-bottom: 1.2rem;
+  }
+
+  body.cv .cv-id-photo {
+    float: left;                    /* ✅ lets text wrap around */
+    width: 90px;
+    height: 90px;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Name flows beside and below the image */
+  body.cv .cv-name {
+    display: inline;                /* ✅ allows wrapping beside image */
+    font-size: clamp(16px, 4.5vw, 20px);
+    font-weight: 600;
+    line-height: 1.2;
+    vertical-align: top;
+  }
+
+  /* Summary sits under name, spanning full width */
+  body.cv .cv-summary {
+    display: block;
+    clear: both;                    /* ✅ starts below photo */
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.45;
+    margin-top: 0.5rem;
+    max-width: 100%;                /* ✅ fills the screen width */
+    text-align: left;
+  }
+
  }
+
 
 
 
