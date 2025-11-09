@@ -488,6 +488,11 @@ body.home .single-image img {
   z-index: 1;       /* ensure it's above background but below any menu overlay */
 }
 
+  body.cv .right, 
+  body.cv .left {
+   float: none;
+}
+
   /* =======================================
    MOBILE CV PAGE TEXT SCALE
    ======================================= */
@@ -529,6 +534,7 @@ body.home .single-image img {
   }
 
  }
+
 
 
 
