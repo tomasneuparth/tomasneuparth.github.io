@@ -42,8 +42,7 @@ body, html {
   overflow: hidden;           /* âœ… Prevents scrolling */
   z-index: 10;
 }
-
-.right {
+body.portfolio2 .right {
   position: absolute;         /* âœ… Detaches from layout flow */
   top: 0;
   left: 40%;                  /* âœ… Starts where the left panel ends */
