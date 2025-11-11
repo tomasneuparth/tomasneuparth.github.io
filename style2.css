@@ -166,35 +166,3 @@ body.portfolio .portfolio-pdf {
   border-radius: 8px;
   background: #111;
 }
-
-/* === FINAL PDF HEIGHT FIX OVERRIDES === */
-body.portfolio2 .portfolio2,
-body.portfolio2 .portfolio2-container {
-  height: 100%;
-}
-
-body.portfolio2 .portfolio2-pdf {
-  height: 100%;
-}
-
-/* === FINAL WIDTH + HEIGHT FIX FOR PDF === */
-body.portfolio2 .portfolio2,
-body.portfolio2 .portfolio2-container,
-body.portfolio2 .portfolio2-pdf {
-  width: 100%;
-  height: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-body.portfolio2 .right {
-  left: 40%;
-  width: 60%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  overflow: hidden;
-  background: #111;
-}
