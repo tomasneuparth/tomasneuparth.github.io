@@ -367,7 +367,7 @@ body.home .single-image img {
 
 
 body.portfolio2 {
-  background-color: #111;
+  background-color: #000;
   color: #fff;
   margin: 0;
   padding: 0;
@@ -378,7 +378,7 @@ body.portfolio2 {
 }
 
 body.portfolio2 .portfolio2-container {
-  width: 100%;
+  width: 95%;
   height: 95%;
   display: flex;
   justify-content: center;
@@ -392,16 +392,17 @@ body.portfolio2 .portfolio2-pdf {
   height: 100%;
   border: none;
   border-radius: 8px;
-  background-color: #111;
+  background: #111;
 }
 
 body.portfolio2 .left {
   position: fixed;            /* âœ… Locks panel in place */
+  background-color: #000;
+  color: #fff;
   top: 0;
   left: 0;
   width: 40%;
   height: 100vh;
-  background-color: #111;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -471,7 +472,7 @@ body.portfolio2 .right {
   width: 60%;                 /* âœ… Adjust to match 40/60 split */
   height: 100vh;
   overflow-y: auto;           /* âœ… Scrollable */
-  bbackground-color: #111;
+  background-color: #111;
   padding-top: 24px;
   padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
   box-sizing: border-box;
