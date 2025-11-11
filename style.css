@@ -393,120 +393,6 @@ body.portfolio .portfolio-pdf {
   background: #111;
 }
 
-
-/* ===== PORTFOLIO 2 ===== */
-
-
-body.portfolio2 {
-  background-color: #111;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-body.portfolio2 .portfolio2-container {
-  width: 100%;
-  height: 95%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-body.portfolio2 .portfolio2-pdf {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 8px;
-  background-color: #111;
-}
-
-body.portfolio2 .left {
-  position: fixed;            /* âœ… Locks panel in place */
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100vh;
-  background-color: #111;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  overflow: hidden;           /* âœ… Prevents scrolling */
-  z-index: 10;
-}
-
-body.portfolio2 .logo_w { width:150px; margin-bottom: 0px; }
-
-body.portfolio2 .titles h1 {
-  font-size: 1.05rem;
-  font-weight: 400;
-  font-color: #000;
-  text-transform: uppercase;
-  margin-bottom: -10px;
-  
-}
-body.portfolio2 .titles h2 {
-  font-size: 0.75rem;
-  font-weight: 300;
-  font-color: #000;
-  text-transform: uppercase;
-  margin-bottom: 90px;
-}
-
-.portfolio2 .center-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.portfolio2 .intro {
-  font-size: 0.95rem;
-  font-color: #fff;
-  line-height: 1.6;
-  max-width: 90%;
-  margin-bottom: 60px;
-}
-
-.portfolio2 .menu a {
-  display:block;
-  font-weight: 600;
-  text-decoration: none;
-  color: #A52A2A;
-}
-.portfolio2 .menu a:hover { 
-  text-decoration: underline; 
-  color: #fff;
-}
-
-.portfolio2 .menu {
-  margin-bottom: 40px;  /* space value A */
-}
-
-portfolio2 .contact { 
-  margin-top: auto;
-  font-size:0.95rem; 
-  font-color: #fff;
-  line-height:1.5; 
-}
-body.portfolio2 .right {
-  position: absolute;         /* âœ… Detaches from layout flow */
-  top: 0;
-  left: 40%;                  /* âœ… Starts where the left panel ends */
-  width: 60%;                 /* âœ… Adjust to match 40/60 split */
-  height: 100vh;
-  overflow-y: auto;           /* âœ… Scrollable */
-  bbackground-color: #111;
-  padding-top: 24px;
-  padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
-  box-sizing: border-box;
-}
-
 /* =======================================
    MOBILE HOME PAGE (FINAL)
    ======================================= */
@@ -739,6 +625,7 @@ body.portfolio2 .right {
   }
 
  }
+
 
 
 
