@@ -432,7 +432,7 @@ body.portfolio2 .left {
   left: 0;
   width: 40%;
   height: 100vh;
-  background-color: #000;
+  background-color: #111;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -729,6 +729,7 @@ portfolio2 .contact {
   }
 
  }
+
 
 
 
