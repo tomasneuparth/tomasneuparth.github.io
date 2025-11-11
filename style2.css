@@ -43,6 +43,19 @@ body, html {
   z-index: 10;
 }
 
+.right {
+  position: absolute;         /* âœ… Detaches from layout flow */
+  top: 0;
+  left: 40%;                  /* âœ… Starts where the left panel ends */
+  width: 60%;                 /* âœ… Adjust to match 40/60 split */
+  height: 100vh;
+  overflow-y: auto;           /* âœ… Scrollable */
+  background-color: #111;
+  padding-top: 24px;
+  padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
+  box-sizing: border-box;
+}
+
 /* ===== PORTFOLIO 2 ===== */
 
 .portfolio2-container {
@@ -116,18 +129,6 @@ portfolio2 .contact {
   font-size:0.95rem; 
   font-color: #fff;
   line-height:1.5; 
-}
-body.portfolio2 .right {
-  position: absolute;         /* âœ… Detaches from layout flow */
-  top: 0;
-  left: 40%;                  /* âœ… Starts where the left panel ends */
-  width: 60%;                 /* âœ… Adjust to match 40/60 split */
-  height: 100vh;
-  overflow-y: auto;           /* âœ… Scrollable */
-  background-color: #111;
-  padding-top: 24px;
-  padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
-  box-sizing: border-box;
 }
 
 /* =======================================
