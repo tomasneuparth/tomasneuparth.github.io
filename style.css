@@ -423,7 +423,7 @@ body.portfolio2 .portfolio-pdf {
   height: 100%;
   border: none;
   border-radius: 8px;
-  background: #111;
+  background: #fff;
 }
 
 body.portfolio2 .left {
@@ -432,7 +432,7 @@ body.portfolio2 .left {
   left: 0;
   width: 40%;
   height: 100vh;
-  background: #000;
+  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -729,6 +729,7 @@ portfolio2 .contact {
   }
 
  }
+
 
 
 
