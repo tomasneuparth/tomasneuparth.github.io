@@ -137,6 +137,23 @@ portfolio2 .contact {
   line-height: 1.5; 
 }
 
+/* === PDF FIT-WIDTH FIX (portfolio2 only) === */
+body.portfolio2 .portfolio2-container {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body.portfolio2 .portfolio2-pdf {
+  width: 100%;
+  height: 100vh;
+  border: none;
+  background: #111;
+}
+
 /* =======================================
    MOBILE PORTFOLIO PAGE (FINAL)
    ======================================= */
