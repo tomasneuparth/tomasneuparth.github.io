@@ -127,6 +127,10 @@ body.portfolio2 .titles h2 {
   color: #fff;
 }
 
+.menu {
+  margin-bottom: 40px;  /* space value A */
+}
+
 portfolio2 .contact { 
   margin-top: auto;
   font-size: 0.95rem; 
