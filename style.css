@@ -423,16 +423,17 @@ body.portfolio2 .portfolio-pdf {
   height: 100%;
   border: none;
   border-radius: 8px;
-  background: #fff;
+  background: #111;
 }
 
 body.portfolio2 .left {
+  background-color: #000;
+  color: #fff;
   position: fixed;            /* âœ… Locks panel in place */
   top: 0;
   left: 0;
   width: 40%;
   height: 100vh;
-  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -729,6 +730,7 @@ portfolio2 .contact {
   }
 
  }
+
 
 
 
