@@ -8,8 +8,15 @@ body, html {
   height:100%; 
   width:100%; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  background:#fff; 
   min-height: 100%;
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .layout {
@@ -23,11 +30,12 @@ body, html {
 
 .left {
   position: fixed;            /* âœ… Locks panel in place */
+  background-color: #000;
+  color: #fff;
   top: 0;
   left: 0;
   width: 40%;
   height: 100vh;
-  background: #fff;
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -98,270 +106,6 @@ body, html {
   padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
   box-sizing: border-box;
 }
-
-/* === Homepage-specific image styling === */
-/* === HOME PAGE ONLY === */
-body.home .right {
-  position: fixed;
-  top: 0;
-  left: 40%;             /* âœ… Starts after the left panel */
-  width: 60%;            /* âœ… Only takes remaining screen */
-  height: 100vh;
-  overflow: hidden;
-  background: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Image wrapper */
-body.home .single-image {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 24px;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 16px;
-  box-sizing: border-box;
-}
-
-/* Image itself */
-body.home .single-image img {
-  width: 60vw;
-  max-width: 500px;
-  height: auto;
-  object-fit: contain;
-  border-radius: 16px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.05); /* optional soft shadow */
-}
-
-/*
-.carousel img {
-  position:absolute;
-  top:50%;
-  left:50%;
-  width:auto;
-  height:100%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-
-.carousel img.active { opacity: 1; }
-*/
-
-.cv-image {
-  width: 150%;
-  height: auto;
-  max-height: 150%;
-  object-fit: contain;
-  display: block;
-  padding: 20px; /* Optional: Adjust or remove for tighter fit */
-}
-  
- /* max-width: 120%;
-  max-height: 120%;
-  width: auto;
-  height: auto;
-  display: block;
-  align-items: center;
-  margin: auto;
-  object-fit: contain;*/
-
-.right img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 30px;
-  padding: 80px 40px 40px 40px;
-  overflow-y: scroll;
-}
-
-.project-thumb {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-
-.project-thumb img {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* Forces a 4:3 ratio for ALL thumbnails */
-  object-fit: contain;
-  display: block;
-}
-
-.project-thumb span {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  line-height: 1.2;
-  text-align: center; 
-}
-
-.project-thumb:hover {
-  opacity: 0.7;
-}
-
-/* ===== Right-side vertical CV (scoped) ===== */
-.cv-content {
-  font: inherit;
-  color: inherit;
-  height: 100%;
-  overflow-y: auto;            /* right pane scrollable only */
-  padding: 24px clamp(16px, 2.5vw, 40px);
-  max-width: 880px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-.body.cv .cv-content {
-  margin-bottom: 60px;         /* ✅ add bottom space */
- } 
-
-/* ID photo + headline */
-.cv-id {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px 18px;
-  align-items: center;
-  position: relative;
-  padding-bottom: 16px;
-}
-
-.cv-id-photo {
-  width: 150px; height: 150px;           /* Display size (see asset sizes below) */
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
-  border: 1px solid rgba(0,0,0,0.15);
-}
-
-/* the timeline vertical line starts below the photo and runs down */
-.cv-content::before {
-  content: "";
-  position: absolute;
-  /* anchor line under the ID photo */
-  top: 24px;                                 /* aligns with .cv-content padding top */
-  left: calc(50% + 440px);                   /* push far right, then corrected below */
-  width: 0; height: 0;                       /* placeholder, overridden below */
-}
-
-/* Headline text */
-.cv-name {
-  font-size: 1.7rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0 0 6px;
-}
-.cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
-
-.cv-overline {
-  font-size: clamp(12px, 1.2vw, 13px);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 16px 0 6px;
-  opacity: 0.9;
-}
-
-.cv-contacts ul {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-wrap: wrap; gap: 12px 16px;
-  font-size: clamp(12px, 1.2vw, 13px);
-}
-.cv-contacts a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-
-.cv-section { margin-top: 22px; }
-.cv-section-title {
-  font-size: clamp(13px, 1.3vw, 15px);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0 0 10px;
-  opacity: 0.9;
-}
-
-/* Timeline grid: [node][content][logo] */
-.cv-timeline {
-  position: relative;          /* host for vertical line */
-  display: grid;
-  grid-template-columns: 24px 1fr auto;
-  column-gap: 16px;
-}
-
-/* The vertical line itself */
-.cv-timeline::before {
-  content: "";
-  position: absolute;
-  left: 12px;                  /* center of 24px node column */
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: rgba(0,0,0,0.25);
-}
-
-/* Each item row */
-.cv-item {
-  display: contents;           /* use grid cells declared below */
-}
-
-.cv-node-wrap {
-  grid-column: 1;
-  position: relative;
-}
-.cv-node {
-  position: relative;
-  top: .8em;                   /* aligns node with the baseline of the h3 */
-  display: inline-block;
-  width: 10px; height: 10px;   /* visible circle size */
-  border-radius: 50%;
-  background: #000;
-  outline: 8px solid #fff;     /* creates breathing space from line */
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
-  text-indent: -9999px;        /* accessible circle */
-}
-.cv-node:focus { box-shadow: 0 0 0 3px rgba(0,0,0,0.35); outline: none; }
-
-.cv-item-body {
-  grid-column: 2;
-  padding: 12px 0;
-  border-top: 1px solid rgba(0,0,0,0.1);
-}
-.cv-item:first-child .cv-item-body { border-top: none; }
-
-.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; }
-.cv-muted { opacity: 0.8; font-weight: 400; }
-.cv-meta { font-size: clamp(12px, 1.2vw, 13px); opacity: 0.85; margin-top: 2px; }
-.cv-bullets { margin: 6px 0 0 0; padding-left: 18px; font-size: clamp(12px, 1.3vw, 14px); }
-.cv-bullets li { margin: 3px 0; }
-
-.cv-logo {
-  grid-column: 3;
-  align-self: start;
-  width: 72px;                 /* logo box size (see asset sizes below) */
-  min-height: 48px;
-  border: 1px dashed transparent;
-  border-radius: 6px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 11px; color: rgba(0,0,0,0.55); padding: 6px;
-}
-
-/* Cards for skills/personality/languages/hobbies */
-.cv-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 10px; }
-.cv-card { padding: 12px 0; border-top: 1px solid rgba(0,0,0,0.1); }
-.cv-tags { list-style: none; padding: 0; margin: 6px 0 0; display: flex; gap: 8px 12px; flex-wrap: wrap; font-size: clamp(12px, 1.3vw, 14px); }
-.cv-tags li { background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 999px; }
-
-
 
 /* ===== PORTFOLIO 2 ===== */
 
