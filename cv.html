@@ -279,21 +279,9 @@
     </div>
   </main>
 </div>
- <script>
-  // detect screen width or user agent
-  const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent) 
-                   || window.innerWidth <= 880;
-
-  // get the portfolio link element
-  const portfolioLink = document.getElementById("portfolio-link");
-
-  // redirect desktop users to portfolio2.html
-  if (portfolioLink && !isMobile) {
-    portfolioLink.setAttribute("href", "portfolio2.html");
-  }
- </script>
 </body>
 </html>
+
 
 
 
