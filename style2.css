@@ -48,26 +48,26 @@ body.portfolio2 .left {
 body.portfolio2 .right {
   position: absolute;
   top: 0;
-  left: 40%;          /* starts where the left panel ends */
-  width: 60%;         /* matches 40/60 split */
-  height: 100vh;      /* full viewport height */
-  overflow: hidden;   /* no scrollbars */
+  left: 40%;           /* still the 40/60 split */
+  width: 60%;
+  height: 100vh;
+  overflow: hidden;
   background-color: #111;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;         /* remove extra vertical padding */
+  padding: 0;
   box-sizing: border-box;
 }
 
 /* PDF container and embed */
 body.portfolio2 .portfolio2-container {
-  width: 100%;
-  height: 100%;
+  width: 95%;          /* use most of the panel width */
+  height: 95vh;        /* fill nearly the full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px; /* small gap around PDF */
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -77,6 +77,7 @@ body.portfolio2 .portfolio2-pdf {
   border: none;
   border-radius: 8px;
   background: #111;
+  object-fit: contain;  /* makes sure PDF scales proportionally */
 }
 
 /* LEFT PANEL CONTENT */
