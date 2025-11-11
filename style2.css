@@ -60,16 +60,10 @@ body.portfolio2 .right {
   box-sizing: border-box;
 }
 
-/* ===== PORTFOLIO 2 (Right Panel + PDF) ===== */
-
-body.portfolio2 .right {
-  position: absolute;
-  top: 0;
-  left: 40%;           /* 40/60 desktop split */
-  width: 60%;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #111;
+/* PDF container and embed */
+body.portfolio2 .portfolio2-container {
+  width: 95%;          /* use most of the panel width */
+  height: 95vh;        /* fill nearly the full viewport height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +71,73 @@ body.portfolio2 .right {
   box-sizing: border-box;
 }
 
-/* === PDF FIT-WIDTH + SCROLL (portfolio2 only) === */
+body.portfolio2 .portfolio2-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+  object-fit: contain;  /* makes sure PDF scales proportionally */
+}
+
+/* LEFT PANEL CONTENT */
+
+body.portfolio2 .logo_w { 
+  width: 150px; 
+  margin-bottom: 0px; 
+}
+
+body.portfolio2 .titles h1 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: -10px;
+}
+
+body.portfolio2 .titles h2 {
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 90px;
+}
+
+.portfolio2 .center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio2 .intro {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 60px;
+}
+
+.portfolio2 .menu a {
+  display: block;
+  font-weight: 600;
+  text-decoration: none;
+  color: #A52A2A;
+}
+
+.portfolio2 .menu a:hover { 
+  text-decoration: underline; 
+  color: #fff;
+}
+
+.portfolio2 .menu {
+  margin-bottom: 40px;  /* space value A */
+}
+
+portfolio2 .contact { 
+  margin-top: auto;
+  font-size: 0.95rem; 
+  line-height: 1.5; 
+}
+
+/* === PDF FIT-WIDTH FIX (portfolio2 only) === */
 body.portfolio2 .portfolio2-container {
   width: 100%;
   height: 100vh;
@@ -85,8 +145,6 @@ body.portfolio2 .portfolio2-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;        /* hides any overflow from iframe edges */
-  box-sizing: border-box;
 }
 
 body.portfolio2 .portfolio2-pdf {
@@ -94,8 +152,6 @@ body.portfolio2 .portfolio2-pdf {
   height: 100vh;
   border: none;
   background: #111;
-  border-radius: 8px;
-  object-fit: contain;     /* keeps proportions if resized */
 }
 
 /* =======================================
