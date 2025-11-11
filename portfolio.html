@@ -14,5 +14,12 @@
       class="portfolio-pdf"
     />
   </div>
+  	<script>
+      const isDesktop = !(/Android|iPhone|iPad|iPod|Opera Mini|IEMobile|Mobile/i.test(navigator.userAgent))
+                    && window.innerWidth > 880;
+      if (isDesktop) {
+        window.location.href = "portfolio2.html";
+      }
+    </script>
 </body>
 </html>
