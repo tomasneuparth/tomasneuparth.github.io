@@ -1,0 +1,712 @@
+center* { 
+  margin:0; 
+  padding:0; 
+  box-sizing:border-box; 
+}
+
+body, html { 
+  height:100%; 
+  width:100%; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  background:#fff; 
+  min-height: 100%;
+}
+
+.layout {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  min-height: 100vh; /* Optional: to ensure full screen on short content */
+}
+
+/*==>LEFT PANEL<==*/
+
+.left {
+  position: fixed;            /* âœ… Locks panel in place */
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100vh;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;           /* âœ… Prevents scrolling */
+  z-index: 10;
+}
+
+.logo { width:150px; margin-bottom: 0px; }
+
+.titles h1 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: -10px;
+}
+.titles h2 {
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 90px;
+}
+
+/* Wrapper for center content */
+.center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 60px;
+}
+
+.menu a {
+  display:block;
+  font-weight: 600;
+  text-decoration: none;
+  color: #A52A2A;
+}
+.menu a:hover { 
+  text-decoration: underline; 
+}
+
+.menu {
+  margin-bottom: 40px;  /* space value A */
+}
+
+.contact { 
+  margin-top: auto;
+  font-size:0.95rem; 
+  line-height:1.5; 
+}
+
+.right {
+  position: absolute;         /* âœ… Detaches from layout flow */
+  top: 0;
+  left: 40%;                  /* âœ… Starts where the left panel ends */
+  width: 60%;                 /* âœ… Adjust to match 40/60 split */
+  height: 100vh;
+  overflow-y: auto;           /* âœ… Scrollable */
+  background: white;
+  padding-top: 24px;
+  padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
+  box-sizing: border-box;
+}
+
+/* === Homepage-specific image styling === */
+/* === HOME PAGE ONLY === */
+body.home .right {
+  position: fixed;
+  top: 0;
+  left: 40%;             /* âœ… Starts after the left panel */
+  width: 60%;            /* âœ… Only takes remaining screen */
+  height: 100vh;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image wrapper */
+body.home .single-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  box-sizing: border-box;
+}
+
+/* Image itself */
+body.home .single-image img {
+  width: 60vw;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05); /* optional soft shadow */
+}
+
+/*
+.carousel img {
+  position:absolute;
+  top:50%;
+  left:50%;
+  width:auto;
+  height:100%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.carousel img.active { opacity: 1; }
+*/
+
+.cv-image {
+  width: 150%;
+  height: auto;
+  max-height: 150%;
+  object-fit: contain;
+  display: block;
+  padding: 20px; /* Optional: Adjust or remove for tighter fit */
+}
+  
+ /* max-width: 120%;
+  max-height: 120%;
+  width: auto;
+  height: auto;
+  display: block;
+  align-items: center;
+  margin: auto;
+  object-fit: contain;*/
+
+.right img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 30px;
+  padding: 80px 40px 40px 40px;
+  overflow-y: scroll;
+}
+
+.project-thumb {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.project-thumb img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Forces a 4:3 ratio for ALL thumbnails */
+  object-fit: contain;
+  display: block;
+}
+
+.project-thumb span {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+  text-align: center; 
+}
+
+.project-thumb:hover {
+  opacity: 0.7;
+}
+
+/* ===== Right-side vertical CV (scoped) ===== */
+.cv-content {
+  font: inherit;
+  color: inherit;
+  height: 100%;
+  overflow-y: auto;            /* right pane scrollable only */
+  padding: 24px clamp(16px, 2.5vw, 40px);
+  max-width: 880px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.body.cv .cv-content {
+  margin-bottom: 60px;         /* ✅ add bottom space */
+ } 
+
+/* ID photo + headline */
+.cv-id {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px 18px;
+  align-items: center;
+  position: relative;
+  padding-bottom: 16px;
+}
+
+.cv-id-photo {
+  width: 150px; height: 150px;           /* Display size (see asset sizes below) */
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+/* the timeline vertical line starts below the photo and runs down */
+.cv-content::before {
+  content: "";
+  position: absolute;
+  /* anchor line under the ID photo */
+  top: 24px;                                 /* aligns with .cv-content padding top */
+  left: calc(50% + 440px);                   /* push far right, then corrected below */
+  width: 0; height: 0;                       /* placeholder, overridden below */
+}
+
+/* Headline text */
+.cv-name {
+  font-size: 1.7rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.cv-summary { margin: 0; font-size: clamp(13px, 1.4vw, 15px); opacity: 0.9; }
+
+.cv-overline {
+  font-size: clamp(12px, 1.2vw, 13px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 16px 0 6px;
+  opacity: 0.9;
+}
+
+.cv-contacts ul {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 12px 16px;
+  font-size: clamp(12px, 1.2vw, 13px);
+}
+.cv-contacts a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+.cv-section { margin-top: 22px; }
+.cv-section-title {
+  font-size: clamp(13px, 1.3vw, 15px);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 10px;
+  opacity: 0.9;
+}
+
+/* Timeline grid: [node][content][logo] */
+.cv-timeline {
+  position: relative;          /* host for vertical line */
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  column-gap: 16px;
+}
+
+/* The vertical line itself */
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px;                  /* center of 24px node column */
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(0,0,0,0.25);
+}
+
+/* Each item row */
+.cv-item {
+  display: contents;           /* use grid cells declared below */
+}
+
+.cv-node-wrap {
+  grid-column: 1;
+  position: relative;
+}
+.cv-node {
+  position: relative;
+  top: .8em;                   /* aligns node with the baseline of the h3 */
+  display: inline-block;
+  width: 10px; height: 10px;   /* visible circle size */
+  border-radius: 50%;
+  background: #000;
+  outline: 8px solid #fff;     /* creates breathing space from line */
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+  text-indent: -9999px;        /* accessible circle */
+}
+.cv-node:focus { box-shadow: 0 0 0 3px rgba(0,0,0,0.35); outline: none; }
+
+.cv-item-body {
+  grid-column: 2;
+  padding: 12px 0;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+.cv-item:first-child .cv-item-body { border-top: none; }
+
+.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; }
+.cv-muted { opacity: 0.8; font-weight: 400; }
+.cv-meta { font-size: clamp(12px, 1.2vw, 13px); opacity: 0.85; margin-top: 2px; }
+.cv-bullets { margin: 6px 0 0 0; padding-left: 18px; font-size: clamp(12px, 1.3vw, 14px); }
+.cv-bullets li { margin: 3px 0; }
+
+.cv-logo {
+  grid-column: 3;
+  align-self: start;
+  width: 72px;                 /* logo box size (see asset sizes below) */
+  min-height: 48px;
+  border: 1px dashed transparent;
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: rgba(0,0,0,0.55); padding: 6px;
+}
+
+/* Cards for skills/personality/languages/hobbies */
+.cv-cards { display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 10px; }
+.cv-card { padding: 12px 0; border-top: 1px solid rgba(0,0,0,0.1); }
+.cv-tags { list-style: none; padding: 0; margin: 6px 0 0; display: flex; gap: 8px 12px; flex-wrap: wrap; font-size: clamp(12px, 1.3vw, 14px); }
+.cv-tags li { background: rgba(0,0,0,0.05); padding: 4px 8px; border-radius: 999px; }
+
+
+
+/* ===== PORTFOLIO 2 ===== */
+
+
+body.portfolio2 {
+  background-color: #111;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+body.portfolio2 .portfolio2-container {
+  width: 100%;
+  height: 95%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+body.portfolio2 .portfolio2-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: #111;
+}
+
+body.portfolio2 .left {
+  position: fixed;            /* âœ… Locks panel in place */
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100vh;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  box-sizing: border-box;
+  overflow: hidden;           /* âœ… Prevents scrolling */
+  z-index: 10;
+}
+
+body.portfolio2 .logo_w { width:150px; margin-bottom: 0px; }
+
+body.portfolio2 .titles h1 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-color: #000;
+  text-transform: uppercase;
+  margin-bottom: -10px;
+  
+}
+body.portfolio2 .titles h2 {
+  font-size: 0.75rem;
+  font-weight: 300;
+  font-color: #000;
+  text-transform: uppercase;
+  margin-bottom: 90px;
+}
+
+.portfolio2 .center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.portfolio2 .intro {
+  font-size: 0.95rem;
+  font-color: #fff;
+  line-height: 1.6;
+  max-width: 90%;
+  margin-bottom: 60px;
+}
+
+.portfolio2 .menu a {
+  display:block;
+  font-weight: 600;
+  text-decoration: none;
+  color: #A52A2A;
+}
+.portfolio2 .menu a:hover { 
+  text-decoration: underline; 
+  color: #fff;
+}
+
+.portfolio2 .menu {
+  margin-bottom: 40px;  /* space value A */
+}
+
+portfolio2 .contact { 
+  margin-top: auto;
+  font-size:0.95rem; 
+  font-color: #fff;
+  line-height:1.5; 
+}
+body.portfolio2 .right {
+  position: absolute;         /* âœ… Detaches from layout flow */
+  top: 0;
+  left: 40%;                  /* âœ… Starts where the left panel ends */
+  width: 60%;                 /* âœ… Adjust to match 40/60 split */
+  height: 100vh;
+  overflow-y: auto;           /* âœ… Scrollable */
+  bbackground-color: #111;
+  padding-top: 24px;
+  padding-bottom: 60px; /* adjust to taste: 40–100px usually feels right */
+  box-sizing: border-box;
+}
+
+/* =======================================
+   MOBILE HOME PAGE (FINAL)
+   ======================================= */
+@media (max-width: 880px) {
+
+  /* ---- FIXED BACKGROUND IMAGE ---- */
+  body.home .right {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 0; /* behind the menu */
+  }
+
+  body.home .single-image img {
+    width: 70vw;               /* smaller image */
+    height: auto;
+    max-width: 420px;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  }
+
+  /* ---- LEFT PANEL ---- */
+  body.home .left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 10;               /* above image */
+    transition: transform 0.45s ease;
+    transform: translateX(0);  /* visible by default */
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+  
+  body.home .left.hide-on-scroll {
+    transform: translateX(-100%); /* slide completely off screen */
+  }
+
+  /* =======================================
+   MOBILE HOME PAGE TEXT SCALE
+   ======================================= */
+
+  /* Make intro text smaller */
+  body.home .intro {
+    font-size: clamp(12px, 3vw, 14px);
+    line-height: 1.45;
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
+
+  /* Make menu links smaller and tighter */
+  body.home .menu a {
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.3;
+    margin: 0.3rem 0;
+  }
+
+  /* Reduce spacing between menu and contact */
+  body.home .menu {
+    margin-bottom: 1.2rem;
+  }
+
+  /* Make contact info smaller and balanced */
+  body.home .contact {
+    font-size: clamp(11px, 2.8vw, 13px);
+    line-height: 1.4;
+    margin-top: 1.2rem; /* small spacing after menu */
+  }
+
+  /* Page vertical spacing tweak */
+   body.home .center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* stack from top */
+    margin-top: -1.2rem;         /* lift intro+menu+contact upward */
+    height: auto;                /* allow natural height */
+  }
+
+/* =======================================
+   MOBILE CV PAGE (VERTICAL STACK)
+   ======================================= */
+
+  /* Stack panels vertically */
+  body.cv .layout {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  /* Left panel at top */
+  body.cv .left {
+    position: relative; /* remove fixed positioning */
+    width: 100%;
+    height: auto;
+    padding: 1.2rem;
+    z-index: 1;
+    transform: none;
+    transition: none;
+    overflow: visible;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.1); /* optional visual divider */
+  }
+
+  /* Right panel below */
+ body.cv .right {
+  position: relative;
+  top: 0;
+  left: 0;          /* ✅ reset leftover desktop offset */
+  width: 100%;      /* ✅ full width */
+  min-height: 100vh;
+  overflow-y: visible;
+  background: #fff;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  z-index: 1;       /* ensure it's above background but below any menu overlay */
+}
+
+  body.cv .right, 
+  body.cv .left {
+   float: none;
+}
+
+  /* =======================================
+   MOBILE CV PAGE TEXT SCALE
+   ======================================= */
+
+  /* Make intro text smaller */
+  body.cv .intro {
+    font-size: clamp(12px, 3vw, 14px);
+    line-height: 1.45;
+    margin-bottom: 1rem;
+    max-width: 95%;
+  }
+
+  /* Make menu links smaller and tighter */
+  body.cv .menu a {
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.3;
+    margin: 0.3rem 0;
+  }
+
+  /* Reduce spacing between menu and contact */
+  body.cv .menu {
+    margin-bottom: 1.2rem;
+  }
+
+  /* Make contact info smaller and balanced */
+  body.cv .contact {
+    font-size: clamp(11px, 2.8vw, 13px);
+    line-height: 1.4;
+    margin-top: 1.2rem; /* small spacing after menu */
+  }
+
+  /* Page vertical spacing tweak */
+   body.cv .center-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* stack from top */
+    margin-top: -1.2rem;         /* lift intro+menu+contact upward */
+    height: auto;                /* allow natural height */
+  }
+
+/* =======================================
+   MOBILE CV PAGE – WRAPPED NAME & SUMMARY
+   ======================================= */
+  
+/* Allow name to wrap around photo */
+  body.cv .cv-id {
+    display: block;                 /* normal flow for wrap */
+    margin-bottom: 1.2rem;
+  }
+
+  body.cv .cv-id-photo {
+    float: left;                    /* ✅ lets text wrap around */
+    width: 90px;
+    height: 90px;
+    margin-right: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  /* Name flows beside and below the image */
+  body.cv .cv-name {
+    display: inline;                /* ✅ allows wrapping beside image */
+    font-size: clamp(16px, 4.5vw, 20px);
+    font-weight: 600;
+    line-height: 1.2;
+    vertical-align: top;
+  }
+
+  /* Summary sits under name, spanning full width */
+  body.cv .cv-summary {
+    display: block;
+    clear: both;                    /* ✅ starts below photo */
+    font-size: clamp(12px, 3.2vw, 14px);
+    line-height: 1.45;
+    margin-top: 0.5rem;
+    max-width: 100%;                /* ✅ fills the screen width */
+    text-align: left;
+  }
+
+/* =======================================
+   MOBILE CV PAGE – LOCK HORIZONTAL SCROLL
+   ======================================= */
+  
+  /* Prevent any sideways scroll */
+  body.cv,
+  body.cv .layout,
+  body.cv .right,
+  body.cv .cv-content {
+    overflow-x: hidden;    /* ✅ no horizontal scroll */
+    max-width: 100vw;      /* ✅ limit width to viewport */
+  }
+
+  /* Make sure floated elements don't cause horizontal overflow */
+  body.cv .cv-id::after {
+    content: "";
+    display: block;
+    clear: both;           /* ✅ clears the floated image properly */
+  }
+
+ }
+
+
