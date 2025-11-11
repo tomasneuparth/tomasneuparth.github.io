@@ -427,8 +427,6 @@ body.portfolio2 .portfolio-pdf {
 }
 
 body.portfolio2 .left {
-  background-color: #000;
-  color: #fff;
   position: fixed;            /* âœ… Locks panel in place */
   top: 0;
   left: 0;
@@ -730,6 +728,7 @@ portfolio2 .contact {
   }
 
  }
+
 
 
 
