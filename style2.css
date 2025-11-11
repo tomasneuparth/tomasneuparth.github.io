@@ -5,6 +5,7 @@ center* {
 }
 
 body, html { 
+  height:100%
   width:100%; 
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   min-height: 100%;
@@ -15,7 +16,6 @@ body, html {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
 .layout {
@@ -24,6 +24,8 @@ body, html {
   flex-direction: row;
   min-height: 100vh; /* Optional: to ensure full screen on short content */
 }
+
+
 
 /*==>LEFT PANEL<==*/
 
