@@ -27,7 +27,7 @@ body, html {
 
 /*==> LEFT PANEL <==*/
 
-.left {
+body.portfolio2 .left {
   position: fixed;
   background-color: #000;
   color: #fff;
