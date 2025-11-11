@@ -49,6 +49,19 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+// =======================================
+// Redirect portfolio link based on device
+// =======================================
+document.addEventListener("DOMContentLoaded", () => {
+  const portfolioLink = document.getElementById("portfolioLink");
+  if (!portfolioLink) return;
+
+  // Use screen width to detect mobile
+  const isMobile = window.matchMedia("(max-width: 880px)").matches;
+
+  // Point the link to the right file
+  portfolioLink.href = isMobile ? "portfolio.html" : "portfolio2.html";
+});
 
 
 
