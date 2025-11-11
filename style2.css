@@ -63,22 +63,6 @@ body, html {
   background: #111;
 }
 
-.portfolio2 .left {
-  position: fixed;            /* âœ… Locks panel in place */
-  background-color: #000;
-  color: #fff;
-  top: 0;
-  left: 0;
-  width: 40%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  box-sizing: border-box;
-  overflow: hidden;           /* âœ… Prevents scrolling */
-  z-index: 10;
-}
-
 body.portfolio2 .logo_w { width:150px; margin-bottom: 0px; }
 
 body.portfolio2 .titles h1 {
