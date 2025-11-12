@@ -60,6 +60,16 @@ body.portfolio2 .left {
   z-index: 10;
 }
 
+/* Make embedded PDF fill the right panel */
+.right iframe,
+.right embed {
+  width: 100%;
+  height: 100vh;     /* or 100% if you prefer scrolling */
+  border: none;
+  display: block;
+  box-sizing: border-box;
+}
+
 /* ===== PORTFOLIO 2 (Right Panel + PDF) ===== */
 
 body.portfolio2 .right {
