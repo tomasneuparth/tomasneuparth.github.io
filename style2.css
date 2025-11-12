@@ -58,12 +58,15 @@ body.portfolio2 .left {
   z-index: 10;
 }
 
-/* Make embedded PDF fill the right panel */
-.right iframe,
-.right embed {
-  width: 100%;
-  height: 100vh;     /* or 100% if you prefer scrolling */
+/* Force full-width PDF on portfolio2 */
+.right, .pdf-container, iframe {
+  width: 100% !important;
+  height: 100vh !important;
+  max-width: 100%;
   border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   display: block;
   box-sizing: border-box;
 }
