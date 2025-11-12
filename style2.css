@@ -88,24 +88,36 @@ body.portfolio2 .right {
   box-sizing: border-box;
 }
 
-/* PDF container and embed */
-body.portfolio2 .portfolio2-container {
-  width: 95%;          /* use most of the panel width */
-  height: 95vh;        /* fill nearly the full viewport height */
+/* =======================================
+   PORTFOLIO2 RIGHT PANEL (PDF SIZING FIX)
+   ======================================= */
+
+.portfolio2 {
+  width: 100%;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0;
-  box-sizing: border-box;
+  background: #000; /* keep same background tone */
+  overflow: hidden;
 }
 
-body.portfolio2 .portfolio2-pdf {
+.portfolio2-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portfolio2-pdf {
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 8px;
-  background: #111;
-  object-fit: contain;  /* makes sure PDF scales proportionally */
+  display: block;
+  object-fit: cover;
+  overflow: hidden;
+  background: #000;
 }
 
 /* LEFT PANEL CONTENT */
@@ -146,23 +158,6 @@ body.portfolio2 .titles h2 {
 .portfolio2 .menu a:hover { 
   text-decoration: underline; 
   color: #fff;
-}
-
-/* === PDF FIT-WIDTH FIX (portfolio2 only) === */
-body.portfolio2 .portfolio2-container {
-  width: 100%;
-  height: 100vh;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-body.portfolio2 .portfolio2-pdf {
-  width: 100%;
-  height: 100vh;
-  border: none;
-  background: #111;
 }
 
 /* =======================================
