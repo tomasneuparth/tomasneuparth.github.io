@@ -25,6 +25,23 @@ body, html {
   min-height: 100vh; /* ensures full screen on short content */
 }
 
+.center-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu {
+  margin-bottom: 40px;  /* space value A */
+}
+
+.contact { 
+  margin-top: auto;
+  font-size: 0.95rem; 
+  line-height: 1.5; 
+}
+
 /*==> LEFT PANEL <==*/
 
 body.portfolio2 .left {
@@ -101,13 +118,6 @@ body.portfolio2 .titles h2 {
   margin-bottom: 90px;
 }
 
-.portfolio2 .center-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .portfolio2 .intro {
   font-size: 0.95rem;
   line-height: 1.6;
@@ -125,16 +135,6 @@ body.portfolio2 .titles h2 {
 .portfolio2 .menu a:hover { 
   text-decoration: underline; 
   color: #fff;
-}
-
-.portfolio2 .menu {
-  margin-bottom: 40px;  /* space value A */
-}
-
-portfolio2 .contact { 
-  margin-top: auto;
-  font-size: 0.95rem; 
-  line-height: 1.5; 
 }
 
 /* === PDF FIT-WIDTH FIX (portfolio2 only) === */
