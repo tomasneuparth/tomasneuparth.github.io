@@ -58,66 +58,43 @@ body.portfolio2 .left {
   z-index: 10;
 }
 
-/* Force full-width PDF on portfolio2 */
-.right, .pdf-container, iframe {
-  width: 100% !important;
-  height: 100vh !important;
-  max-width: 100%;
-  border: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  display: block;
-  box-sizing: border-box;
-}
-
-/* ===== PORTFOLIO 2 (Right Panel + PDF) ===== */
-
+/* ===== Portfolio2 PDF Layout Fix (Scoped & Precise) ===== */
 body.portfolio2 .right {
   position: absolute;
   top: 0;
-  left: 40%;           /* still the 40/60 split */
+  left: 40%;
   width: 60%;
   height: 100vh;
-  overflow: hidden;
   background-color: #111;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* =======================================
-   PORTFOLIO2 RIGHT PANEL (PDF SIZING FIX)
-   ======================================= */
-
-.portfolio2 {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #000; /* keep same background tone */
-  overflow: hidden;
-}
-
-.portfolio2-container {
+/* container and iframe should fill entire right panel */
+body.portfolio2 .portfolio2,
+body.portfolio2 .portfolio2-container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: #000;
+  overflow: hidden;
 }
 
-.portfolio2-pdf {
+body.portfolio2 .portfolio2-pdf {
   width: 100%;
   height: 100%;
   border: none;
   display: block;
-  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;  /* ✅ shows full width of PDF */
   overflow: hidden;
-  background: #000;
 }
 
 /* LEFT PANEL CONTENT */
