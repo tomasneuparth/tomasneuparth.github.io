@@ -50,18 +50,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =======================================
-// Redirect portfolio link based on device
+// Redirect Portfolio link based on device width
 // =======================================
 document.addEventListener("DOMContentLoaded", () => {
-  const portfolioLink = document.getElementById("portfolioLink");
-  if (!portfolioLink) return;
+  const link = document.getElementById("portfolioLink");
+  if (!link) return;
 
-  // Use screen width to detect mobile
   const isMobile = window.matchMedia("(max-width: 880px)").matches;
-
-  // Point the link to the right file
-  portfolioLink.href = isMobile ? "portfolio.html" : "portfolio2.html";
+  link.href = isMobile ? "portfolio.html" : "portfolio2.html";
 });
+
+// Optional: auto-redirect if someone types the wrong URL directly
+document.addEventListener("DOMContentLoaded", () => {
+  const isMobile = window.matchMedia("(max-width: 880px)").matches;
+  const path = window.location.pathname;
+
+  if (isMobile && path.endsWith("portfolio2.html")) {
+    window.location.replace("portfolio.html");
+  } else if (!isMobile && path.endsWith("portfolio.html")) {
+    window.location.replace("portfolio2.html");
+  }
+});
+
+
 
 
 
