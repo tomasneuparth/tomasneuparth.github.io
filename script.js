@@ -50,17 +50,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // =======================================
-// Redirect Portfolio link based on device width
+// Redirect Portfolio link based on device width (robust)
 // =======================================
 document.addEventListener("DOMContentLoaded", () => {
-  const link = document.getElementById("portfolioLink");
-  if (!link) return;
+  const links = document.querySelectorAll('a[href*="portfolio"][id="portfolioLink"]');
+  if (!links.length) return;
 
   const isMobile = window.matchMedia("(max-width: 880px)").matches;
-  link.href = isMobile ? "portfolio.html" : "portfolio2.html";
+  const target = isMobile ? "portfolio.html" : "portfolio2.html";
+
+  // Update all portfolio links (works for CV, Home, etc.)
+  links.forEach(link => {
+    link.setAttribute("href", target);
+  });
 });
 
-// Optional: auto-redirect if someone types the wrong URL directly
+// =======================================
+// Optional: Auto-redirect if wrong version opened directly
+// =======================================
 document.addEventListener("DOMContentLoaded", () => {
   const isMobile = window.matchMedia("(max-width: 880px)").matches;
   const path = window.location.pathname;
