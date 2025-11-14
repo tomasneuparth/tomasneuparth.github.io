@@ -176,3 +176,15 @@ body.portfolio .portfolio-pdf {
   background: #111;
 }
 
+body.portfolio .portfolio-pdf::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for WebKit browsers */
+} 
+
+body.portfolio .portfolio-pdf {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #111;
+}
+} 
