@@ -7,9 +7,13 @@ center* {
 body, html { 
   height:100%; 
   width:100%; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   background:#fff; 
   min-height: 100%;
+}
+
+.semibold {
+  font-weight: 600;
 }
 
 .layout {
@@ -62,13 +66,13 @@ body, html {
 .intro {
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 90%;
+  max-width: 80%;
   margin-bottom: 60px;
 }
 
 .menu a {
   display:block;
-  font-weight: 600;
+  font-weight: 300;
   text-decoration: none;
   color: #A52A2A;
 }
@@ -338,7 +342,7 @@ body.home .single-image img {
 }
 .cv-item:first-child .cv-item-body { border-top: none; }
 
-.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; }
+.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; font-weight: 500; }
 .cv-muted { opacity: 0.8; font-weight: 400; }
 .cv-meta { font-size: clamp(12px, 1.2vw, 13px); opacity: 0.85; margin-top: 2px; }
 .cv-bullets { margin: 6px 0 0 0; padding-left: 18px; font-size: clamp(12px, 1.3vw, 14px); }
@@ -625,6 +629,7 @@ body.portfolio .portfolio-pdf {
   }
 
  }
+
 
 
 
