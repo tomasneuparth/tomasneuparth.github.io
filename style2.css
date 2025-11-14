@@ -4,10 +4,14 @@ center* {
   box-sizing: border-box; 
 }
 
+.semibold {
+  font-weight: 600;
+}
+
 body, html { 
   height: 100%;
   width: 100%; 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
   min-height: 100%;
   background-color: #000;
   color: #fff;
@@ -31,11 +35,10 @@ body, html {
 }
 
 .menu {
-  margin-bottom: 40px;  /* space value A */
+  margin: 0;
 }
 
 .contact { 
-  margin-top: auto;
   font-size: 0.95rem; 
   line-height: 1.5; 
 }
@@ -101,19 +104,19 @@ body.portfolio2 .portfolio2-pdf {
 /* LEFT PANEL CONTENT */
 
 body.portfolio2 .logo_w { 
-  width: 150px; 
+  width: 200px; 
   margin-bottom: 0px; 
 }
 
 body.portfolio2 .titles h1 {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: -10px;
 }
 
 body.portfolio2 .titles h2 {
-  font-size: 0.75rem;
+  font-size: 0.96rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 90px;
@@ -121,9 +124,10 @@ body.portfolio2 .titles h2 {
 
 .portfolio2 .intro {
   font-size: 0.95rem;
+  font-weight: 100;
   line-height: 1.6;
-  max-width: 90%;
-  margin-bottom: 60px;
+  margin-bottom: 0;
+  color: #fff;
 }
 
 .portfolio2 .menu a {
@@ -171,3 +175,4 @@ body.portfolio .portfolio-pdf {
   border-radius: 8px;
   background: #111;
 }
+
