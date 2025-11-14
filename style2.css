@@ -126,6 +126,7 @@ body.portfolio2 .titles h2 {
   font-size: 0.95rem;
   font-weight: 100;
   line-height: 1.6;
+  max-width: 90%;
   margin-bottom: 0;
   color: #fff;
 }
