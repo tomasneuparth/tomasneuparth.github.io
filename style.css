@@ -40,16 +40,16 @@ body, html {
   z-index: 10;
 }
 
-.logo { width:150px; margin-bottom: 0px; }
+.logo { width: 200px;px; margin-bottom: 0px; }
 
 .titles h1 {
-  font-size: 1.05rem;
+  font-size: 1.3rem;
   font-weight: 400;
   text-transform: uppercase;
   margin-bottom: -10px;
 }
 .titles h2 {
-  font-size: 0.75rem;
+  font-size: 0.96rem;
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 90px;
@@ -65,27 +65,28 @@ body, html {
 
 .intro {
   font-size: 0.95rem;
+  font-weight: 100;
   line-height: 1.6;
-  max-width: 80%;
-  margin-bottom: 60px;
+  max-width: %;
+  margin-bottom: 0;
 }
 
 .menu a {
   display:block;
-  font-weight: 300;
+  font-weight: 600;
   text-decoration: none;
   color: #A52A2A;
 }
 .menu a:hover { 
   text-decoration: underline; 
+  color:#000
 }
 
 .menu {
-  margin-bottom: 40px;  /* space value A */
+  margin: 0;
 }
 
 .contact { 
-  margin-top: auto;
   font-size:0.95rem; 
   line-height:1.5; 
 }
@@ -342,7 +343,7 @@ body.home .single-image img {
 }
 .cv-item:first-child .cv-item-body { border-top: none; }
 
-.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; font-weight: 500; }
+.cv-role { margin: 0; font-size: clamp(14px, 1.6vw, 18px); line-height: 1.25; font-weight: 600; }
 .cv-muted { opacity: 0.8; font-weight: 400; }
 .cv-meta { font-size: clamp(12px, 1.2vw, 13px); opacity: 0.85; margin-top: 2px; }
 .cv-bullets { margin: 6px 0 0 0; padding-left: 18px; font-size: clamp(12px, 1.3vw, 14px); }
@@ -629,6 +630,7 @@ body.portfolio .portfolio-pdf {
   }
 
  }
+
 
 
 
